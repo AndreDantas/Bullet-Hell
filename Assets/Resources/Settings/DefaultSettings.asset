@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cf6c2c95aeada499342dbd629aa0f0, type: 3}
+  m_Name: DefaultSettings
+  m_EditorClassIdentifier: 
+  playerBulletPrefab: {fileID: 1520956166438192, guid: fd75f3ff1b0926d4d8edd8f9cf07e821,
+    type: 2}
+  playerShootCooldown: 0.08
+  playerCollisionRadius: 0.35
+  playerCollisionOffset: {x: 0, y: -0.3}
