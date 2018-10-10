@@ -12,7 +12,7 @@ public class WatcherGamma : Watcher
     public GameObject partPrefab;
     public GameObject Barrier;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         Barrier?.Activate();
     }

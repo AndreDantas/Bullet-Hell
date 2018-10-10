@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
     public bool active = true;
     [SerializeField]
     protected Shoot shoot;
-
+    protected Player player;
     protected virtual void Awake()
     {
         if (!shoot)
@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    public void RequestShoot()
+    public virtual void RequestShoot()
     {
         if (!active)
             return;
@@ -38,5 +38,8 @@ public abstract class Enemy : MonoBehaviour
     }
 
     protected abstract void Shoot();
-
+    protected virtual void OnEnable()
+    {
+        player = GameObject.FindObjectOfType<Player>();
+    }
 }

@@ -396,6 +396,7 @@ public static class UtilityFunctions
         return (index >= 0 && index < list.Count);
     }
 
+
     #endregion
 
     #region Stack
@@ -749,6 +750,14 @@ public static class UtilityFunctions
                 UnityEngine.Object.Destroy(destroyList[i]);
         }
 
+    }
+
+    public static void SafeDestroy(GameObject g)
+    {
+        if (Application.isEditor)
+            UnityEngine.Object.DestroyImmediate(g);
+        else
+            UnityEngine.Object.Destroy(g);
     }
     /// <summary>
     /// Changes the GameObject's scale without affecting the children.

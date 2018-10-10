@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4780117736778638}
   - component: {fileID: 212850213365083490}
-  - component: {fileID: 114918337634878486}
   - component: {fileID: 114986152417012030}
   - component: {fileID: 114314897964290772}
   - component: {fileID: 114193690122497920}
@@ -106,19 +105,6 @@ MonoBehaviour:
     faction: 1
     speed: 7
     damage: 1
---- !u!114 &114918337634878486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697919858491962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1552218ca90d8e4f9b3c76992dc0b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  moveDirection: {x: 0, y: 0}
 --- !u!114 &114986152417012030
 MonoBehaviour:
   m_ObjectHideFlags: 1

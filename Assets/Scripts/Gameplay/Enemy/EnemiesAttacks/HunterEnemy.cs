@@ -8,12 +8,11 @@ public class HunterEnemy : Enemy
 {
 
     protected SpawnBulletsTarget spawnBullets = new SpawnBulletsTarget();
-    protected GameObject player;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        player = FindObjectOfType<Player>().gameObject;
-        spawnBullets = new SpawnBulletsTarget(player);
+
+        spawnBullets = new SpawnBulletsTarget(player.gameObject);
     }
 
     protected override void Shoot()

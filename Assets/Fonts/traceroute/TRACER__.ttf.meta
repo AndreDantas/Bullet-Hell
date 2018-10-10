@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ddd7b6c2dcfe5d448a03f9da1a39caf1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: TRACEROUTE
+  fontNames:
+  - TRACEROUTE
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d96f70d9964b22c419169140440a9c9f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -11,8 +11,10 @@ public class WatcherAlpha : Watcher
     public override string Name => "Watcher Alpha";
     public GameObject Barrier;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         Barrier?.Activate();
     }
+
+
 }

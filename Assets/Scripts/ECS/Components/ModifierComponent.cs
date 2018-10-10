@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using System;
 using Unity.Entities;
 public class ModifierComponent : MonoBehaviour
 {
@@ -27,8 +28,27 @@ public class ModifierComponent : MonoBehaviour
     {
         if (m != null)
         {
+            foreach (var item in modifiers)
+            {
+                if (item.GetType() == m.GetType())
+                    return;
+
+            }
             m.Reset();
             modifiers.Add(m);
+        }
+    }
+
+    public void RemoveModifier(string name)
+    {
+        for (int i = 0; i < modifiers.Count; i++)
+        {
+            if (modifiers[i].GetType().Name.Trim().ToLower() == name.Trim().ToLower())
+            {
+                modifiers.RemoveAt(i);
+                return;
+            }
+
         }
     }
 

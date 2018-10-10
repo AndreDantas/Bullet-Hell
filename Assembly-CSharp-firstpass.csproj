@@ -116,9 +116,6 @@
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
@@ -142,9 +139,6 @@
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Transforms2D">
       <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Library/ScriptAssemblies/Unity.Transforms2D.dll</HintPath>
@@ -355,6 +349,12 @@
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-2017.3-Editor">
+      <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-2017.3-Runtime">
+      <HintPath>D:/Andre Dantas/Unity/Bullet Hell/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/cidae/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

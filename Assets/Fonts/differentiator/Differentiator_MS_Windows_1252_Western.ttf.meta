@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 947287f4c9e0f894f906826afc6a0689
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Differentiator
+  fontNames:
+  - Differentiator
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 49c8361844022c641af2a68af4113a73, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -97,6 +97,8 @@
 -r:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll"
 -r:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll"
 -r:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll"
+-r:"D:/Andre Dantas/Unity/Bullet Hell/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll"
+-r:"D:/Andre Dantas/Unity/Bullet Hell/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll"
 -r:C:/Users/cidae/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
 -r:C:/Users/cidae/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
 -r:C:/Users/cidae/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll
