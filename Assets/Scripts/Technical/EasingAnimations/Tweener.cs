@@ -10,7 +10,7 @@ public abstract class Tweener : MonoBehaviour
     public static Func<float, float, float, float> DefaultEquation = EasingEquations.EaseInOutQuad;
     public EasingControl easingControl;
     public bool destroyOnComplete = true;
-    public bool destroyOnDisable = false;
+    public bool destroyOnDisable = true;
     #endregion
     #region MonoBehaviour
     protected virtual void Awake()

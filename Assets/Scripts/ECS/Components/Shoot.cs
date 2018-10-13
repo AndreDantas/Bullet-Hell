@@ -6,17 +6,13 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 public class Shoot : MonoBehaviour
 {
-    [ReadOnly]
-    public bool CanShoot = true;
-    public float Cooldown = 1f;
-    [ReadOnly]
-    public float elapsedCooldownTime;
+    public Timer shootTimer = new Timer(0.5f, true);
 
     [Header("Bullet Info")]
     public BulletSpawnData data;
 
     private void OnDisable()
     {
-        elapsedCooldownTime = 0f;
+        shootTimer.Finish();
     }
 }

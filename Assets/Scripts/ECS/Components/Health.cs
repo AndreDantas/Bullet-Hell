@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     public float elapsedInvincibleTime;
     [ReadOnly]
     public bool wasDamaged = false;
+
     [ShowInInspector, ReadOnly]
     public bool isDead { get { return currentHealth <= 0; } }
 

@@ -67,6 +67,9 @@
     <Compile Include="Assets\Scripts\ECS\Components\Bullet\BulletRemoveTime.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Bullet\BulletStyle.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\CollisionRadius.cs" />
+    <Compile Include="Assets\Scripts\ECS\Components\DamageColorEffect.cs" />
+    <Compile Include="Assets\Scripts\ECS\Components\DamageShakeEffect.cs" />
+    <Compile Include="Assets\Scripts\ECS\Components\Effect.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Factions\Faction.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Factions\Player.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Health.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletSpawnData.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletSpawnSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletStyleSystem.cs" />
+    <Compile Include="Assets\Scripts\ECS\Systems\DamageEffectSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\DamageSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\InvincibilitySystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\ModifiersSystem.cs" />
@@ -115,6 +119,7 @@
     <Compile Include="Assets\Scripts\Technical\EasingAnimations\EasingControl.cs" />
     <Compile Include="Assets\Scripts\Technical\EasingAnimations\EasingEquations.cs" />
     <Compile Include="Assets\Scripts\Technical\EasingAnimations\EasingEquationsType.cs" />
+    <Compile Include="Assets\Scripts\Technical\EasingAnimations\ImageExtensions.cs" />
     <Compile Include="Assets\Scripts\Technical\EasingAnimations\TransformExtensions.cs" />
     <Compile Include="Assets\Scripts\Technical\EasingAnimations\Tweener.cs" />
     <Compile Include="Assets\Scripts\Technical\Enums\BulletsTypes.cs" />

@@ -8,13 +8,16 @@ public class SetObjectsCircle : MonoBehaviour
 {
 
     public GameObject objectPrefab;
-    protected GameObject objectsParent;
     public int amount = 5;
     public float width = 1f;
     public float height = 1f;
-    public float objectsAngleOffset;
+    public float angleOffset;
+    public bool scaleToQuantity = false;
+    [HideIf("scaleToQuantity")]
     public Vector2 objectsScale = Vector2.one;
-
+    [ShowIf("scaleToQuantity")]
+    public Vector2 scaleFactor = Vector2.one;
+    [Space(10)]
     public List<GameObject> objects = new List<GameObject>();
     private void OnEnable()
     {
@@ -26,15 +29,7 @@ public class SetObjectsCircle : MonoBehaviour
         if (amount <= 0 || objectPrefab == null)
             return;
         objects = new List<GameObject>();
-        if (objectsParent)
-        {
-            objectsParent.transform.DestroyChildren(true);
-            UtilityFunctions.SafeDestroy(objectsParent);
-        }
-        objectsParent = new GameObject(objectPrefab.name + " Parent");
-        objectsParent.transform.parent = transform;
-        objectsParent.transform.localScale = Vector3.one;
-        objectsParent.transform.localPosition = Vector3.zero;
+        transform.DestroyChildren(true);
         float x = 0f;
         float y = 0f;
         float angle = 0;
@@ -46,11 +41,13 @@ public class SetObjectsCircle : MonoBehaviour
             x = Mathf.Cos(Mathf.Deg2Rad * angle) * height / 2f;
 
             var pos = new Vector2(x, y);
-            var obj = Instantiate(objectPrefab, objectsParent.transform);
-            obj.transform.localScale = objectsScale;
+            var obj = Instantiate(objectPrefab, transform);
+            obj.transform.localScale = scaleToQuantity ? scaleFactor / amount : objectsScale;
             obj.transform.localPosition = pos;
-            obj.transform.localEulerAngles = new Vector3(0f, 0f, UtilityFunctions.ClampAngle(angle + objectsAngleOffset));
+            obj.transform.localEulerAngles = new Vector3(0f, 0f, UtilityFunctions.ClampAngle(angle + angleOffset));
+
             objects.Add(obj);
+
             angle += angleStep;
         }
 

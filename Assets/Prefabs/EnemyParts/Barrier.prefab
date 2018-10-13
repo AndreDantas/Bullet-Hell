@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114255794482939896}
   - component: {fileID: 114192326410891016}
   - component: {fileID: 114112399155915126}
+  - component: {fileID: 114595003032414762}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: 0.9
@@ -98,6 +100,21 @@ MonoBehaviour:
   invincibleTime: 0
   elapsedInvincibleTime: 0
   wasDamaged: 0
+--- !u!114 &114595003032414762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397513691714670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6180f170f526f04aa98d69d92c327f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTimer:
+    time: 0.05
+    Counter: 0
+  effectPower: 0.08
 --- !u!212 &212504160562858026
 SpriteRenderer:
   m_ObjectHideFlags: 1

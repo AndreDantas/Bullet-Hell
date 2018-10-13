@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 492}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 827
-  m_MinSize: {x: 950, y: 492}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 817, y: 442}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 146
+  controlID: 109
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 442}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
-  controlID: 18
+  controlID: 110
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 19
+  controlID: 111
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,8 +177,8 @@ MonoBehaviour:
     y: 0
     width: 552
     height: 391
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -336,7 +336,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -349,18 +349,18 @@ MonoBehaviour:
       y: 17
       width: 754
       height: 348
-    m_Scale: {x: 0.1210946, y: 0.1210946}
-    m_Translation: {x: 377, y: 169.83002}
+    m_Scale: {x: 0.11756756, y: 0.11756757}
+    m_Translation: {x: 377, y: 174}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -3113.2686
-      y: -1402.4574
-      width: 6226.537
-      height: 2873.7864
+      x: -3206.6667
+      y: -1480
+      width: 6413.3335
+      height: 2960
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -396,14 +396,14 @@ MonoBehaviour:
     height: 370
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 0
-  lastFramingTime: 1943.5108512918248
+  lastFramingTime: 2687.6511299907206
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.1349664, y: 2.0731473, z: 0.13776775}
+    m_Target: {x: 3.8641293, y: 5.2802906, z: -74.377945}
     speed: 2
-    m_Value: {x: -6.1349664, y: 2.0731473, z: 0.13776775}
+    m_Value: {x: 3.8641293, y: 5.2802906, z: -74.377945}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -435,9 +435,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.150186
+    m_Target: 22.185213
     speed: 2
-    m_Value: 13.150186
+    m_Value: 22.185213
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1547,9 +1547,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 506befff
-    m_LastClickedID: -1086640
-    m_ExpandedIDs: 1829e1ff5814ecff582cecff4c6befff4e6befff506befff7a6cefffdcfbffff00000000
+    m_SelectedIDs: 303e0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 96fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1086640
+  m_LastSelectedObjectID: -1220
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1639,20 +1639,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/EnemyParts
+    - Assets/Scripts/Technical/EasingAnimations
   m_ViewMode: 1
   m_StartGridSize: 62
   m_LastFolders:
-  - Assets/Prefabs/EnemyParts
+  - Assets/Scripts/Technical/EasingAnimations
   m_LastFoldersGridSize: 62
   m_LastProjectPath: D:\Andre Dantas\Unity\Bullet Hell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 65}
-    m_SelectedIDs: 5a330000
-    m_LastClickedID: 13146
-    m_ExpandedIDs: 000000005e2f0000662f0000c02f0000e0300000ec30000052320000a23200009a330000a8330000e03300005a3400007636000080360000163700001e3700002e3700007e3700009c3900009e390000a0390000a2390000a4390000a639000000ca9a3b
+    m_SelectedIDs: e4360000
+    m_LastClickedID: 14052
+    m_ExpandedIDs: 00000000642f00006c2f0000c62f000084300000f230000058320000a8320000ae330000e6330000fa330000603400007c360000863600001c370000243700003437000084370000ee3b0000f03b0000f23b0000f43b0000f63b0000f83b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1680,7 +1680,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e2f0000662f0000c02f0000e0300000ec30000052320000a23200009a330000a8330000e03300005a3400007636000080360000163700001e3700002e3700007e3700009c3900009e390000a0390000a2390000a4390000a6390000
+    m_ExpandedIDs: 00000000642f00006c2f0000c62f000084300000f230000058320000a8320000a0330000ae330000e6330000fa330000603400007c360000863600001c370000243700003437000084370000ee3b0000f03b0000f23b0000f43b0000f63b0000f83b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1708,7 +1708,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: e81c000020060000e61c00002c1e0000a61c0000a01c0000421e0000e41c0000461e0000861e0000ba1c00004a1e0000aa1c0000161c0000a0250000321c0000aa230000f2b3feff962300003855fdff882600004c1c00009c250000561c0000441c00002e1c000070250000341c00001c270000c21c0000401c00005c1c000032270000681c0000382a00008c85ffff582700007c1c0000701c0000661c0000d42b00006a3000004c320000143100002a2500003e330000d82f00003a270000642700005025000038440000be2a00002ac2ffff4c2a0000ca2900008c2c00000e2c0000b229ffff5648000022280000ee480000282800003a290000c62a00008ab6000058290000602900002e2800000c330000f83200002c28000074290000de2800002428000010260000ec28000012260000922e00007a2b0000d626000004260000d83200003c2a0000de2c0000a0290000922800002a28000084300000402c00004e5a00001a290000222e0000bec9fbff862b00004a02fdffa02b0000ec2c0000a62b00006eacf8ff5e15fdffc83400007a5f00009a2d0000b22a000072430000022a000068350000fc2f0000a42d0000662c00008c4e0000c63000005a2c000020420000c4300000b0300000aac10000483300005c2f0000b8360000922f0000fe310000069d0000f02e0000e23800006a2e000048540000ae26feff4cc2ebffd6360000f62c0000f82e0000c43600004a4f0000f23400000c2f00002859000040300000245900002c2f0000d03000004c33000066380000143c0000c039000000000000d63200009c310000aa2e000058370000842f0000
+    m_ExpandedInstanceIDs: e81c000020060000e61c00002c1e0000a61c0000a01c0000421e0000e41c0000461e0000861e0000ba1c00004a1e0000aa1c0000161c0000a0250000321c0000aa230000f2b3feff962300003855fdff882600004c1c00009c250000561c0000441c00002e1c000070250000341c00001c270000c21c0000401c00005c1c000032270000681c0000382a00008c85ffff582700007c1c0000701c0000661c0000d42b00006a3000004c320000143100002a2500003e330000d82f00003a270000642700005025000038440000be2a00002ac2ffff4c2a0000ca2900008c2c00000e2c0000b229ffff5648000022280000ee480000282800003a290000c62a00008ab6000058290000602900002e2800000c330000f83200002c28000074290000de2800002428000010260000ec28000012260000922e00007a2b0000d626000004260000d83200003c2a0000de2c0000a0290000922800002a28000084300000402c00004e5a00001a290000222e0000bec9fbff862b00004a02fdffa02b0000ec2c0000a62b00006eacf8ff5e15fdffc83400007a5f00009a2d0000b22a000072430000022a000068350000fc2f0000a42d0000662c00008c4e0000c63000005a2c000020420000c4300000b0300000aac10000483300005c2f0000b8360000922f0000fe310000069d0000f02e0000e23800006a2e000048540000ae26feff4cc2ebffd6360000f62c0000f82e0000c43600004a4f0000f23400000c2f00002859000040300000245900002c2f0000d03000004c33000066380000143c0000c039000000000000d63200009c310000aa2e0000842f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1724,7 +1724,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

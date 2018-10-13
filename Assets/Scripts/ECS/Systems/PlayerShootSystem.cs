@@ -23,6 +23,8 @@ public class PlayerShootSystem : ComponentSystem
 
         for (int i = data.Length - 1; i >= 0; i--)
         {
+            var shoot = data.shoot[i];
+            shoot.shootTimer.Update();
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
                 firing = data.player[i].moving;
             else
@@ -30,10 +32,9 @@ public class PlayerShootSystem : ComponentSystem
 
             if (firing)
             {
-                var shoot = data.shoot[i];
-                if (shoot.CanShoot)
+                if (shoot.shootTimer.isFinished)
                 {
-                    shoot.CanShoot = false;
+
                     var spawn = new SpawnBulletsDirection();
                     var data = shoot.data;
                     data.position = shoot.transform.position;
@@ -43,6 +44,7 @@ public class PlayerShootSystem : ComponentSystem
                     {
                         bullet[0].GetComponent<Bullet>().scale = 1.5f;
                     }
+                    shoot.shootTimer.Reset();
                 }
 
             }

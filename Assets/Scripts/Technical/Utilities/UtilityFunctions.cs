@@ -68,6 +68,11 @@ public static class UtilityFunctions
         return angle;
     }
 
+    /// <summary>
+    /// Returns the angle of the vector.
+    /// </summary>
+    /// <param name="v"></param>
+    /// <returns></returns>
     public static float GetAngle(this Vector2 v)
     {
         // normalize the vector: this makes the x and y components numerically
@@ -89,6 +94,12 @@ public static class UtilityFunctions
 
     }
 
+    /// <summary>
+    /// Returns the distance between two angles.
+    /// </summary>
+    /// <param name="alpha"></param>
+    /// <param name="beta"></param>
+    /// <returns></returns>
     public static float SmallerAngleDifference(float alpha, float beta)
     {
 
@@ -326,6 +337,9 @@ public static class UtilityFunctions
     /// <returns></returns>
     public static List<T> ToList<T>(this T[] array)
     {
+        if (array == null)
+            return null;
+
         List<T> result = new List<T>();
         foreach (T t in array)
         {
@@ -675,6 +689,8 @@ public static class UtilityFunctions
     /// <param name="g"></param>
     public static void Deactivate(this GameObject g)
     {
+        if (!g)
+            return;
         g.SetActive(false);
     }
 
@@ -684,6 +700,8 @@ public static class UtilityFunctions
     /// <param name="g"></param>
     public static void Activate(this GameObject g)
     {
+        if (!g)
+            return;
         g.SetActive(true);
     }
     /// <summary>

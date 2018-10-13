@@ -34,8 +34,8 @@ public class PlayerMovementSystem : ComponentSystem
 
     void CalculateInputMovement(Player move)
     {
-        var inputX = Input.GetAxis("Horizontal");
-        var inputY = Input.GetAxis("Vertical");
+        var inputX = Input.GetAxisRaw("Horizontal");
+        var inputY = Input.GetAxisRaw("Vertical");
 
         move.transform.position = new Vector3(inputX * move.speed * Time.deltaTime + move.transform.position.x,
                                                 inputY * move.speed * Time.deltaTime + move.transform.position.y, move.transform.position.z);

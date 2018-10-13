@@ -29,11 +29,11 @@ public abstract class Enemy : MonoBehaviour
     {
         if (!active)
             return;
-        if (shoot?.CanShoot ?? false)
+        if (shoot?.shootTimer.isFinished ?? false)
         {
 
             Shoot();
-            shoot.CanShoot = false;
+            shoot.shootTimer.Reset();
         }
     }
 
