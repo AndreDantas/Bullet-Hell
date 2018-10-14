@@ -20,6 +20,7 @@ public class WatcherGamma : Watcher
     }
     protected override void OnEnable()
     {
+        base.OnEnable();
         Barrier?.Activate();
     }
 

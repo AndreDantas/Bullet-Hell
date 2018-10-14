@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 4237295379760156}
   - component: {fileID: 212854320106593704}
   - component: {fileID: 114331525161062576}
+  - component: {fileID: 114383216443483928}
+  - component: {fileID: 114394731334969870}
   - component: {fileID: 114970859389732372}
   - component: {fileID: 114553129896530220}
   - component: {fileID: 114511470763013830}
-  - component: {fileID: 114383216443483928}
   m_Layer: 0
   m_Name: TriangleShootForward
   m_TagString: Untagged
@@ -62,9 +63,6 @@ MonoBehaviour:
   invincibleTime: 0
   elapsedInvincibleTime: 0
   wasDamaged: 0
-  damageEffectTimer:
-    time: 0.1
-    Counter: 0
 --- !u!114 &114383216443483928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +78,20 @@ MonoBehaviour:
     time: 0.05
     Counter: 0
   effectPower: 0.1
+--- !u!114 &114394731334969870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811665899353784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27d485c4b1de154eb8569d3bfc7c556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sr: {fileID: 212854320106593704}
+  flashTime: 0.2
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114511470763013830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +129,7 @@ MonoBehaviour:
   value: 1
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: 1.15
 --- !u!212 &212854320106593704
 SpriteRenderer:
   m_ObjectHideFlags: 1

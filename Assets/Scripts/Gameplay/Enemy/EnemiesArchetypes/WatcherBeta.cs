@@ -18,11 +18,6 @@ public class WatcherBeta : Watcher
         if (!ObjectsOrbiting)
             ObjectsOrbiting = GetComponentInChildren<SetObjectsCircle>();
     }
-    protected override void Shoot()
-    {
-
-        base.Shoot();
-    }
 
     public override void RequestShoot()
     {

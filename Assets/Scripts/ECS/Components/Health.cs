@@ -27,9 +27,15 @@ public class Health : MonoBehaviour
     [ShowInInspector, ReadOnly]
     public bool isDead { get { return currentHealth <= 0; } }
 
+    private void OnDisable()
+    {
+        wasDamaged = false;
+    }
+
     private void OnEnable()
     {
         currentHealth = maxHealth;
+
     }
     private void Awake()
     {

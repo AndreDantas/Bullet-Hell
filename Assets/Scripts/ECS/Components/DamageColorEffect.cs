@@ -6,39 +6,80 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 public class DamageColorEffect : Effect
 {
-    [Required(InfoMessageType.Warning)]
-    public SpriteRenderer sr;
+
+    [SerializeField, HideInInspector]
+    private SpriteRenderer _sr;
+    [Required(InfoMessageType.Warning), ShowInInspector, PropertyOrder(-1)]
+    public SpriteRenderer spriteRenderer { get { return _sr; } set { originColor = value.color; _sr = value; } }
+
+    public float flashTime = 0.2f;
     public Color damageColor = Color.red;
     protected Color originColor;
+    private bool fadeIn;
+    private float elapsedTime;
 
     private void OnEnable()
     {
-        if (inProgress)
-            EndEffect();
-        originColor = sr?.color ?? Color.white;
+
+        originColor = spriteRenderer?.color ?? Color.white;
     }
 
     public override void StartEffect()
     {
-        base.StartEffect();
 
-        if (!sr)
+        if (!spriteRenderer)
             return;
+
         inProgress = true;
-        originColor = sr.color;
+        fadeIn = true;
     }
 
     public override void UpdateEffect()
     {
-        if (!sr)
+        if (!spriteRenderer)
             return;
+        if (fadeIn)
+        {
+            elapsedTime += Time.deltaTime;
 
+            var i = elapsedTime / (flashTime / 2f);
+
+            spriteRenderer.color = Color.Lerp(originColor, damageColor, i);
+
+            if (i >= 1)
+                fadeIn = false;
+
+        }
+        else
+        {
+            elapsedTime -= Time.deltaTime;
+
+            var i = elapsedTime / (flashTime / 2f);
+
+            spriteRenderer.color = Color.Lerp(originColor, damageColor, i);
+
+            if (i <= 0)
+            {
+                elapsedTime = 0f;
+                inProgress = false;
+            }
+
+
+        }
     }
 
     public override void EndEffect()
     {
-        if (!sr)
+        if (!spriteRenderer)
             return;
         inProgress = false;
+        spriteRenderer.color = originColor;
+    }
+
+    private void Reset()
+    {
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr)
+            this.spriteRenderer = sr;
     }
 }

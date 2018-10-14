@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Unity.Mathematics;
 using Sirenix.OdinInspector;
 using Unity.Entities;
-
+[UpdateBefore(typeof(BulletMovementSystem))]
 public class DamageSystem : ComponentSystem
 {
 
@@ -55,14 +55,22 @@ public class DamageSystem : ComponentSystem
                 if (bullets.Faction[si].Value != receiverFaction)
                 {
                     Vector2 shotPos = bullets.Faction[si].transform.position;
-                    Vector2 delta = shotPos - receiverPos;
-                    float distSquared = math.dot(delta, delta);
-                    if (distSquared <= collisionRadiusSquared)
+                    float delta = Mathf.Pow(shotPos.x - receiverPos.x, 2) + Mathf.Pow(shotPos.y - receiverPos.y, 2);
+                    Vector2 dir = (shotPos - receiverPos).normalized;
+                    if (delta < collisionRadiusSquared)
                     {
 
                         damage = bullets.Damage[si].Value;
 
                         bullets.Bullet[si].toRemove = true;
+
+                        GameEffectsReference.DeployEffect("hit", shotPos);
+
+                        //Debug.Log("Bullet pos: " + shotPos);
+                        //Debug.Log("Receiver pos: " + receiverPos);
+                        //Debug.Log("Distance: " + Vector2.Distance(shotPos, receiverPos));
+                        //Debug.Log("Receiver radius: " + collisionRadius);
+
                         break;
                     }
                 }

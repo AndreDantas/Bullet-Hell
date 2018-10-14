@@ -13,6 +13,7 @@ public class WatcherAlpha : Watcher
 
     protected override void OnEnable()
     {
+        base.OnEnable();
         Barrier?.Activate();
     }
 

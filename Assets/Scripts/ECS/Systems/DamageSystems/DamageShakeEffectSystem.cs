@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using Unity.Entities;
-public class DamageEffectSystem : ComponentSystem
+public class DamageShakeEffectSystem : ComponentSystem
 {
 
     struct Data
