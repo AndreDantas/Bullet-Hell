@@ -23,7 +23,6 @@ public class DamageShakeEffect : Effect
         base.StartEffect();
 
         effectTimer.Reset();
-        inProgress = true;
         movePos = RandomPos();
 
         transform.localPosition += movePos;
@@ -44,7 +43,8 @@ public class DamageShakeEffect : Effect
 
     public override void EndEffect()
     {
-
+        if (!inProgress)
+            return;
         inProgress = false;
         transform.localPosition -= movePos;
         effectTimer.Reset();

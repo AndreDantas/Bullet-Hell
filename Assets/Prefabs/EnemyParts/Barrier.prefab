@@ -80,10 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 0.9
+  scaleMultiplier: {x: 0.95, y: 0.95}
 --- !u!114 &114255794482939896
 MonoBehaviour:
   m_ObjectHideFlags: 1

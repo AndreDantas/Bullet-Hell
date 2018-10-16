@@ -6,13 +6,9 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 public abstract class Movement : MonoBehaviour
 {
-    public float moveTime = 3f;
+    public float moveTime = 5f;
     public bool active = true;
     protected bool isMoving;
-    public virtual void Move()
-    {
-        if (!active)
-            return;
+    public abstract void Move();
 
-    }
 }

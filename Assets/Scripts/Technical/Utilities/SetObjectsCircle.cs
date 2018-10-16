@@ -55,6 +55,6 @@ public class SetObjectsCircle : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        UtilityFunctions.GizmosDrawCircle(transform.position, width * transform.lossyScale.x, height * transform.lossyScale.x, amount);
+        UtilityFunctions.GizmosDrawEllipse(transform.position, width * transform.lossyScale.x, height * transform.lossyScale.x, amount);
     }
 }

@@ -7,14 +7,15 @@ using Sirenix.OdinInspector;
 public class MoveRandomArea : Movement
 {
     public Bounds area;
-    public Timer waitTime = new Timer(2f, true);
-    public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutBack;
+    public Timer waitTime = new Timer(0.5f, true);
+    public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
     protected Vector2 destination;
 
 
     public override void Move()
     {
-        base.Move();
+        if (!active)
+            return;
 
         if (!isMoving)
         {
@@ -24,7 +25,9 @@ public class MoveRandomArea : Movement
             }
             else
             {
+
                 destination = area.RandomPoint();
+
                 isMoving = true;
                 var t = transform.MoveTo(destination, moveTime, EasingEquations.GetEquation(moveEquation));
                 t.destroyOnDisable = true;
@@ -40,4 +43,10 @@ public class MoveRandomArea : Movement
         isMoving = false;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        UtilityFunctions.GizmosDrawBounds(area);
+        if (isMoving)
+            UtilityFunctions.GizmosDrawCross(destination, gizmosColor: Color.red);
+    }
 }

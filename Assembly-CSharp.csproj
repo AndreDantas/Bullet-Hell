@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\ECS\Components\Health.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\ModifierComponent.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\ObjectBounds.cs" />
+    <Compile Include="Assets\Scripts\ECS\Components\PoissonDiskGenerator.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Rotate.cs" />
     <Compile Include="Assets\Scripts\ECS\Components\Shoot.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletMovementSystem.cs" />
@@ -85,9 +86,9 @@
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletSpawnData.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletSpawnSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\BulletSystem\BulletStyleSystem.cs" />
+    <Compile Include="Assets\Scripts\ECS\Systems\DamageSystems\BulletDamageSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\DamageSystems\DamageColorEffectSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\DamageSystems\DamageShakeEffectSystem.cs" />
-    <Compile Include="Assets\Scripts\ECS\Systems\DamageSystems\DamageSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\InvincibilitySystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\ModifiersSystem.cs" />
     <Compile Include="Assets\Scripts\ECS\Systems\ObjectBoundsSystem.cs" />

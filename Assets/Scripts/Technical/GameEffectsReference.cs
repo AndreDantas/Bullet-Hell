@@ -38,6 +38,7 @@ public class GameEffectsReference : MonoBehaviour
         }
         instance = this;
 
+
     }
 
     public static GameObject DeployEffect(string name, Vector2 position)

@@ -8,6 +8,7 @@ using Unity.Entities;
 public abstract class Enemy : MonoBehaviour
 {
     public bool active = true;
+    public Movement movement;
     [SerializeField]
     protected Shoot shoot;
     protected Player player;
@@ -15,6 +16,8 @@ public abstract class Enemy : MonoBehaviour
     {
         if (!shoot)
             shoot = GetComponent<Shoot>();
+        if (!movement)
+            movement = GetComponent<Movement>();
     }
 
     protected virtual void Update()
@@ -22,6 +25,7 @@ public abstract class Enemy : MonoBehaviour
         if (!active)
             return;
         RequestShoot();
+        movement?.Move();
 
     }
 
@@ -41,5 +45,11 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void OnEnable()
     {
         player = GameObject.FindObjectOfType<Player>();
+    }
+
+    private void Reset()
+    {
+        shoot = GetComponent<Shoot>();
+        movement = GetComponent<Movement>();
     }
 }

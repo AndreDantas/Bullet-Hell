@@ -16,8 +16,8 @@ public abstract class Effect : MonoBehaviour
 
     public virtual void StartEffect()
     {
-        if (inProgress)
-            EndEffect();
+        EndEffect();
+        inProgress = true;
     }
 
     public abstract void UpdateEffect();

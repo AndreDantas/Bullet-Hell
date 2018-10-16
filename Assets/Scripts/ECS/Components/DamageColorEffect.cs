@@ -70,6 +70,7 @@ public class DamageColorEffect : Effect
 
     public override void EndEffect()
     {
+
         if (!spriteRenderer)
             return;
         inProgress = false;

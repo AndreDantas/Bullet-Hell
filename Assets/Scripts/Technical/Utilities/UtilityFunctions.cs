@@ -107,27 +107,53 @@ public static class UtilityFunctions
         float distance = phi > 180 ? 360 - phi : phi;
         return distance;
     }
+
     /// <summary>
-    /// Calculates the points of a circle.
+    /// Rotates one point around another
     /// </summary>
-    /// <param name="points"></param>
-    /// <param name="radius"></param>
-    /// <param name="positionReference"></param>
-    /// <returns></returns>
-    public static List<Vector2> CalculateCirclePoints(int points, Vector2? positionReference = null, float radius = 1f)
+    /// <param name="pointToRotate">The point to rotate.</param>
+    /// <param name="centerPoint">The center point of rotation.</param>
+    /// <param name="angleInDegrees">The rotation angle in degrees.</param>
+    /// <returns>Rotated point</returns>
+    public static Vector2 RotatePoint(Vector2 pointToRotate, Vector2 centerPoint, float angleInDegrees)
     {
-        return CalculateCirclePoints(points, positionReference, radius, radius);
+        float angleInRadians = angleInDegrees * (Mathf.PI / 180);
+        float cosTheta = Mathf.Cos(angleInRadians);
+        float sinTheta = Mathf.Sin(angleInRadians);
+        return new Vector2
+        {
+            x =
+
+                (cosTheta * (pointToRotate.x - centerPoint.x) -
+                sinTheta * (pointToRotate.y - centerPoint.y) + centerPoint.x),
+            y =
+
+                (sinTheta * (pointToRotate.x - centerPoint.x) +
+                cosTheta * (pointToRotate.y - centerPoint.y) + centerPoint.y)
+        };
     }
 
     /// <summary>
     /// Calculates the points of a circle.
     /// </summary>
     /// <param name="points"></param>
+    /// <param name="diameter"></param>
+    /// <param name="positionReference"></param>
+    /// <returns></returns>
+    public static List<Vector2> CalculateCirclePoints(int points, Vector2? positionReference = null, float diameter = 1f)
+    {
+        return CalculateEllipsePoints(points, positionReference, diameter, diameter);
+    }
+
+    /// <summary>
+    /// Calculates the points of a ellipse.
+    /// </summary>
+    /// <param name="points"></param>
     /// <param name="positionReference"></param>
     /// <param name="width"></param>
     /// <param name="height"></param>
     /// <returns></returns>
-    public static List<Vector2> CalculateCirclePoints(int points, Vector2? positionReference = null, float width = 1f, float height = 1f)
+    public static List<Vector2> CalculateEllipsePoints(int points, Vector2? positionReference = null, float width = 1f, float height = 1f)
     {
         float x;
         float y;
@@ -138,8 +164,8 @@ public static class UtilityFunctions
         List<Vector2> positions = new List<Vector2>();
         for (int i = 0; i < (points); i++)
         {
-            y = Mathf.Sin(Mathf.Deg2Rad * angle) * width / 2f;
-            x = Mathf.Cos(Mathf.Deg2Rad * angle) * height / 2f;
+            y = Mathf.Sin(Mathf.Deg2Rad * angle) * height / 2f;
+            x = Mathf.Cos(Mathf.Deg2Rad * angle) * width / 2f;
 
             var pos = new Vector2(x, y);
 
@@ -154,6 +180,54 @@ public static class UtilityFunctions
         return positions;
     }
 
+    /// <summary>
+    /// Checks if a point is whitin a circle.
+    /// </summary>
+    /// <param name="point"></param>
+    /// <param name="circleCenter"></param>
+    /// <param name="diameter"></param>
+    /// <returns></returns>
+    public static bool PointWhitinCircle(Vector2 point, Vector2 circleCenter, float diameter = 1f)
+    {
+        return PointWhitinEllipse(point, circleCenter, diameter, diameter);
+    }
+    /// <summary>
+    /// Checks if a point is whitin a ellipse.
+    /// </summary>
+    /// <param name="point"></param>
+    /// <param name="circleCenter"></param>
+    /// <param name="diameter"></param>
+    /// <returns></returns>
+    public static bool PointWhitinEllipse(Vector2 point, Vector2 circleCenter, float width = 1f, float height = 1f)
+    {
+        return PointWhitinEllipse(point, circleCenter, width, height, 0f);
+    }
+    /// <summary>
+    /// Checks if a point is whitin a ellipse.
+    /// </summary>
+    /// <param name="point"></param>
+    /// <param name="circleCenter"></param>
+    /// <param name="diameter"></param>
+    /// <returns></returns>
+    public static bool PointWhitinEllipse(Vector2 point, Vector2 circleCenter, float width = 1f, float height = 1f, float angle = 0f)
+    {
+        angle = ClampAngle(angle) * Mathf.Deg2Rad;
+
+        var cos = Mathf.Cos(angle);
+        var sin = Mathf.Sin(angle);
+
+        var dx = (point.x - circleCenter.x);
+        var dy = (point.y - circleCenter.y);
+
+        var rx = (width / 2f);
+        var ry = (height / 2f);
+
+        var tdx = cos * dx + sin * dy;
+        var tdy = sin * dx - cos * dy;
+
+        return (tdx * tdx) / (rx * rx) + (tdy * tdy) / (ry * ry) < 1;
+
+    }
     /// <summary>
     /// Returns the factorial of the given number.
     /// </summary>
@@ -953,23 +1027,41 @@ public static class UtilityFunctions
     /// <param name="gizmosColor"></param>
     public static void GizmosDrawCircle(Vector2 pos, float diameter = 1f, int points = 30, Color? gizmosColor = null)
     {
-        GizmosDrawCircle(pos, diameter, diameter, points, gizmosColor);
-    }/// <summary>
-     /// Draws a circle in a DrawGizmos function.
-     /// </summary>
-     /// <param name="pos"></param>
-     /// <param name="radius"></param>
-     /// <param name="points"></param>
-     /// <param name="gizmosColor"></param>
-    public static void GizmosDrawCircle(Vector2 pos, float width = 1f, float height = 1f, int points = 30, Color? gizmosColor = null)
+        GizmosDrawEllipse(pos, diameter, diameter, points, gizmosColor);
+    }
+    /// <summary>
+    /// Draws a ellipse in a DrawGizmos function.
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="radius"></param>
+    /// <param name="points"></param>
+    /// <param name="gizmosColor"></param>
+    public static void GizmosDrawEllipse(Vector2 pos, float width, float height, int points = 30, Color? gizmosColor = null)
+    {
+        GizmosDrawEllipse(pos, width, height, 0f, points, gizmosColor);
+    }
+
+    /// <summary>
+    /// Draws a ellipse in a DrawGizmos function.
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="radius"></param>
+    /// <param name="points"></param>
+    /// <param name="gizmosColor"></param>
+    public static void GizmosDrawEllipse(Vector2 pos, float width, float height, float rotatedAngle, int points = 30, Color? gizmosColor = null)
     {
         Gizmos.color = gizmosColor ?? Color.green;
-        var circlePoints = CalculateCirclePoints(points, pos, width, height);
+        var circlePoints = CalculateEllipsePoints(points, pos, width, height);
+
+        circlePoints[0] = RotatePoint(circlePoints[0], pos, rotatedAngle);
 
         var current = circlePoints[0];
 
+        rotatedAngle = ClampAngle(rotatedAngle);
+
         for (int i = 1; i < circlePoints.Count; i++)
         {
+            circlePoints[i] = RotatePoint(circlePoints[i], pos, rotatedAngle);
             Gizmos.DrawLine(current, circlePoints[i]);
             current = circlePoints[i];
         }
