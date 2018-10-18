@@ -484,6 +484,14 @@ public static class UtilityFunctions
         return (index >= 0 && index < list.Count);
     }
 
+    public static int NextIndex<T>(this List<T> list, int currentIndex)
+    {
+
+        if (list.ValidIndex(currentIndex + 1))
+            return (++currentIndex);
+        else
+            return 0;
+    }
 
     #endregion
 

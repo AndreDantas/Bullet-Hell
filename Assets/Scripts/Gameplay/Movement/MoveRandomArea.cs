@@ -38,10 +38,6 @@ public class MoveRandomArea : Movement
 
     }
 
-    private void OnDisable()
-    {
-        isMoving = false;
-    }
 
     private void OnDrawGizmosSelected()
     {

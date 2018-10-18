@@ -11,4 +11,9 @@ public abstract class Movement : MonoBehaviour
     protected bool isMoving;
     public abstract void Move();
 
+    protected virtual void OnDisable()
+    {
+        isMoving = false;
+    }
+
 }
