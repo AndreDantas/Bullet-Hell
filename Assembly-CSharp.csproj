@@ -167,6 +167,7 @@
     <Compile Include="Assets\Scripts\Technical\Utilities\Structs\Float01.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\Structs\Position.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\Structs\Timer.cs" />
+    <Compile Include="Assets\Scripts\Technical\Utilities\Structs\UnitaryQuadrant.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\UtilityFunctions.cs" />
     <Compile Include="Assets\Scripts\Tests\BulletSpawnTests.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

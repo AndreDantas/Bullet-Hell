@@ -32,7 +32,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1773972020219142
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,10 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 0.9
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114220332995304620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  movement: {fileID: 0}
   shoot: {fileID: 0}
   Eye: {fileID: 1773972020219142}
 --- !u!114 &114545469968598458
@@ -215,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  movement: {fileID: 0}
   shoot: {fileID: 0}
 --- !u!114 &114653907252764946
 MonoBehaviour:

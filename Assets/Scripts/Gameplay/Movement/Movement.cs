@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 public abstract class Movement : MonoBehaviour
 {
     public float moveTime = 5f;
+
     public bool active = true;
     protected bool isMoving;
     public abstract void Move();

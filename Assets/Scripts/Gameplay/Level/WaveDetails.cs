@@ -6,6 +6,8 @@ using Sirenix.OdinInspector;
 [System.Serializable]
 public class WaveDetails
 {
-    public List<SpawnDetails> spawns = new List<SpawnDetails>();
+    public bool skipWave;
     public float waveDelay;
+    public List<SpawnDetails> spawns = new List<SpawnDetails>();
+
 }

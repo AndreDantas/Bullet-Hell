@@ -41,28 +41,47 @@ public class Level : MonoBehaviour
             yield break;
 
         spawningEnemies = true;
+
         var wave = levelDetails.waves[currentWave];
-        yield return new WaitForSeconds(wave.waveDelay);
-        for (int i = 0; i < wave?.spawns?.Count; i++)
+
+        if (!wave.skipWave)
         {
-            var spawn = wave.spawns[i];
-            if (spawn.enemyPrefab)
+            yield return new WaitForSeconds(wave.waveDelay);
+            for (int i = 0; i < wave?.spawns?.Count; i++)
             {
-                yield return new WaitForSeconds(spawn.spawnDelay);
 
-                var enemy = Instantiate(spawn.enemyPrefab).GetComponent<Enemy>();
+                var spawn = wave.spawns[i];
+                if (spawn.enemyPrefab)
+                {
+                    yield return new WaitForSeconds(spawn.spawnDelay);
 
-                activeEnemies.Add(enemy.gameObject);
+                    var enemy = Instantiate(spawn.enemyPrefab).GetComponent<Enemy>();
+                    Vector2 start, end;
+                    if (spawn.scaleToScreenSize)
+                    {
+                        var uq = new UnitaryQuadrant(UtilityFunctions.ScreenWidth, UtilityFunctions.ScreenHeight);
+                        start = uq.GetPoint(spawn.startPoint);
+                        end = uq.GetPoint(spawn.endPoint);
+                    }
+                    else
+                    {
+                        start = spawn.startPoint;
+                        end = spawn.endPoint;
+                    }
+                    activeEnemies.Add(enemy.gameObject);
 
-                enemy.active = false;
-                enemy.gameObject.Activate();
-                enemy.transform.position = spawn.startPoint;
+                    enemy.active = false;
+                    enemy.gameObject.Activate();
+                    enemy.transform.position = start;
 
-                var t = enemy.transform.MoveTo(spawn.moveToPoint, spawn.moveTime, EasingEquations.GetEquation(spawn.moveEquation));
-                t.destroyOnDisable = true;
-                t.easingControl.completedEvent += (object sender, System.EventArgs args) => enemy.active = true;
+                    var t = enemy.transform.MoveTo(end, spawn.moveTime, EasingEquations.GetEquation(spawn.moveEquation));
+                    t.destroyOnDisable = true;
+                    t.easingControl.completedEvent += (object sender, System.EventArgs args) => enemy.active = true;
+                }
             }
+
         }
+
         spawningEnemies = false;
         currentWave++;
     }
@@ -79,8 +98,9 @@ public class Level : MonoBehaviour
         {
             if (!activeEnemies[i].activeSelf)
             {
+                Destroy(activeEnemies[i]);
                 activeEnemies.RemoveAt(i);
-                //DESTROY
+
             }
         }
 

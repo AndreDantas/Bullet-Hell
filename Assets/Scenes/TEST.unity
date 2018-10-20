@@ -1672,7 +1672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &428465643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7c9c77d0f16754ab818e19b89fc988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDetails: {fileID: 0}
+  levelDetails: {fileID: 11400000, guid: 5b30931d066ea244db1e1d84c14f8ec7, type: 2}
   spawningEnemies: 0
 --- !u!4 &428465644
 Transform:
@@ -2307,6 +2307,10 @@ Prefab:
     - target: {fileID: 4779119972858724, guid: 04661d40d98f74b419923e09b5e5bcb3, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04661d40d98f74b419923e09b5e5bcb3, type: 2}
@@ -4090,10 +4094,10 @@ GameObject:
   - component: {fileID: 1566392409}
   - component: {fileID: 1566392408}
   - component: {fileID: 1566392407}
+  - component: {fileID: 1566392410}
   - component: {fileID: 1566392406}
   - component: {fileID: 1566392405}
   - component: {fileID: 1566392404}
-  - component: {fileID: 1566392410}
   - component: {fileID: 1566392403}
   - component: {fileID: 1566392402}
   - component: {fileID: 1566392401}
@@ -4265,20 +4269,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566392400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3ab7ab62096ed4c8780f23c61cd514, type: 3}
+  m_Script: {fileID: 11500000, guid: 6260a654a3bb2b543980e0bcff86a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 4
+  moveTime: 3
   active: 1
-  type: 0
-  moveEquation: 4
+  scaleToScreenSize: 1
+  area:
+    m_Center: {x: 0, y: 0.5, z: 0}
+    m_Extent: {x: 0.4, y: 0.2, z: 0}
   waitTime:
-    time: 0
+    time: 0.5
     Counter: 0
-  path:
-  - {x: -5, y: 0}
-  - {x: 0, y: 8}
-  - {x: 5, y: 0}
+  moveEquation: 7
 --- !u!1 &1681677495
 GameObject:
   m_ObjectHideFlags: 0

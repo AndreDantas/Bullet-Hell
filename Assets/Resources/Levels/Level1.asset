@@ -12,33 +12,49 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   waves:
-  - spawns:
-    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      spawnDelay: 0
-      startPoint: {x: -15, y: 8}
-      moveToPoint: {x: -5, y: 8}
-      moveTime: 2
-      moveEquation: 5
-    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      spawnDelay: 0
-      startPoint: {x: 15, y: 8}
-      moveToPoint: {x: 5, y: 8}
-      moveTime: 2
-      moveEquation: 5
-    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      spawnDelay: 0.5
-      startPoint: {x: -15, y: 4}
-      moveToPoint: {x: -5, y: 4}
-      moveTime: 2
-      moveEquation: 5
-    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      spawnDelay: 0.5
-      startPoint: {x: 15, y: 4}
-      moveToPoint: {x: 5, y: 4}
-      moveTime: 2
-      moveEquation: 5
+  - skipWave: 1
     waveDelay: 0
+    spawns:
+    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
+        type: 2}
+      spawnDelay: 0
+      scaleToScreenSize: 1
+      startPoint: {x: -1.5, y: 0.8}
+      endPoint: {x: -0.5, y: 0.8}
+      moveTime: 2
+      moveEquation: 7
+    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
+        type: 2}
+      spawnDelay: 0
+      scaleToScreenSize: 1
+      startPoint: {x: 1.5, y: 0.8}
+      endPoint: {x: 0.5, y: 0.8}
+      moveTime: 2
+      moveEquation: 7
+    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
+        type: 2}
+      spawnDelay: 0.5
+      scaleToScreenSize: 1
+      startPoint: {x: -1.5, y: 0.4}
+      endPoint: {x: -0.5, y: 0.4}
+      moveTime: 2
+      moveEquation: 7
+    - enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
+        type: 2}
+      spawnDelay: 0
+      scaleToScreenSize: 1
+      startPoint: {x: 1.5, y: 0.4}
+      endPoint: {x: 0.5, y: 0.4}
+      moveTime: 2
+      moveEquation: 7
+  - skipWave: 0
+    waveDelay: 3
+    spawns:
+    - enemyPrefab: {fileID: 1262439287043654, guid: be40f4dc071857149b9073a8a3ab1165,
+        type: 2}
+      spawnDelay: 0
+      scaleToScreenSize: 1
+      startPoint: {x: 0, y: 1.5}
+      endPoint: {x: 0, y: 0.5}
+      moveTime: 1
+      moveEquation: 7

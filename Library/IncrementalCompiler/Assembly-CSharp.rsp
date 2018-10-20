@@ -424,6 +424,7 @@
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Technical/Utilities/Structs/Float01.cs"
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Technical/Utilities/Structs/Position.cs"
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Technical/Utilities/Structs/Timer.cs"
+-i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Technical/Utilities/Structs/UnitaryQuadrant.cs"
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Technical/Utilities/UtilityFunctions.cs"
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/Scripts/Tests/BulletSpawnTests.cs"
 -i:"D:/Andre Dantas/Unity/Bullet Hell/Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

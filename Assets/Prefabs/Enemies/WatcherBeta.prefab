@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1261486466705224
 GameObject:
   m_ObjectHideFlags: 1
@@ -355,10 +355,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114034688322137488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,10 +428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114231696983092072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,10 +499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114318091797254304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,10 +561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114408691380922728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -621,10 +629,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114552840446563314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,6 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  movement: {fileID: 0}
   shoot: {fileID: 114157688387242394}
   Eye: {fileID: 1745226100405062}
   objectsOrbitingTimer:
@@ -812,10 +823,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 1.2
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114939862720965680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -844,10 +857,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 0.9
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114999404966945162
 MonoBehaviour:
   m_ObjectHideFlags: 1
