@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 450}
+  m_MinSize: {x: 950, y: 492}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 827
-  m_MinSize: {x: 950, y: 450}
+  m_MinSize: {x: 950, y: 492}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 777
-  m_MinSize: {x: 813, y: 400}
-  m_MaxSize: {x: 22008, y: 10021}
+  m_MinSize: {x: 817, y: 442}
+  m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 159
+  controlID: 17
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,10 +131,10 @@ MonoBehaviour:
     y: 0
     width: 756
     height: 777
-  m_MinSize: {x: 302, y: 400}
-  m_MaxSize: {x: 8002, y: 8021}
+  m_MinSize: {x: 306, y: 442}
+  m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
-  controlID: 81
+  controlID: 141
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,10 +155,10 @@ MonoBehaviour:
     y: 0
     width: 756
     height: 418
-  m_MinSize: {x: 302, y: 200}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 306, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 19
+  controlID: 142
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -207,8 +207,8 @@ MonoBehaviour:
     y: 0
     width: 204
     height: 418
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -232,8 +232,8 @@ MonoBehaviour:
     y: 418
     width: 756
     height: 359
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -319,17 +319,17 @@ MonoBehaviour:
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 1
-  m_SelectedSizes: 07000000050000000000000010000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 0600000005000000000000000d000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -720
-    m_HBaseRangeMax: 720
-    m_VBaseRangeMin: -1280
-    m_VBaseRangeMax: 1280
+    m_HBaseRangeMin: -90.5
+    m_HBaseRangeMax: 90.5
+    m_VBaseRangeMin: -160.5
+    m_VBaseRangeMax: 160.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
       y: 17
       width: 754
       height: 321
-    m_Scale: {x: 0.12539062, y: 0.12539062}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 377, y: 160.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -357,12 +357,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -3006.6045
-      y: -1280
-      width: 6013.209
-      height: 2560
+      x: -377
+      y: -160.5
+      width: 754
+      height: 321
     m_MinimalGUI: 1
-  m_defaultScale: 0.12539062
+  m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 754, y: 338}
@@ -1415,9 +1415,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: dcfbffff00000000
+    m_SelectedIDs: 2e4c0000
+    m_LastClickedID: 19502
+    m_ExpandedIDs: d2d4ffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1507,20 +1507,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Gameplay/Movement
+    - Assets/Scripts/Gameplay/Stats
   m_ViewMode: 1
   m_StartGridSize: 62
   m_LastFolders:
-  - Assets/Scripts/Gameplay/Movement
+  - Assets/Scripts/Gameplay/Stats
   m_LastFoldersGridSize: 62
-  m_LastProjectPath: D:\Andre Dantas\Unity\Bullet Hell
+  m_LastProjectPath: D:\Andre Dantas\Unity\BulletHellProject-master
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 209}
-    m_SelectedIDs: f4340000
-    m_LastClickedID: 13556
-    m_ExpandedIDs: 000000007c2f0000842f0000e02f00000c3100005631000074320000bc330000ca33000002340000163400007c3400009e360000a8360000403700004837000058370000a83700008e3d0000903d0000923d0000943d0000963d0000983d000000ca9a3b
+    m_SelectedIDs: 6a490000
+    m_LastClickedID: 18794
+    m_ExpandedIDs: 00000000544700005c47000080470000fc470000164800009a480000344900003e4900005849000064490000944900008c4a0000924a0000d44a0000d84a0000de4a0000004b0000ba4d0000bc4d0000be4d0000c04d0000c24d0000c44d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1548,7 +1548,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c2f0000842f0000e02f00000c3100005631000074320000bc330000ca33000002340000163400007c3400009e360000a8360000403700004837000058370000a83700008e3d0000903d0000923d0000943d0000963d0000983d0000
+    m_ExpandedIDs: 00000000544700005c47000080470000fc470000164800009a480000344900003e4900005849000064490000944900008c4a0000924a0000d44a0000d84a0000de4a0000004b0000ba4d0000bc4d0000be4d0000c04d0000c24d0000c44d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
