@@ -57,7 +57,10 @@ public static class UtilityFunctions
 
         return angle;
     }
-
+    public static float ReversePercentage(float finalValue, float percentAdded)
+    {
+        return (finalValue * 100) / (percentAdded + 100);
+    }
     /// <summary>
     /// Returns the angle of the vector.
     /// </summary>
@@ -695,6 +698,9 @@ public static class UtilityFunctions
     /// <returns></returns>
     public static bool CheckForComponent<T>(this GameObject g) where T : Component
     {
+        if (!g)
+            return false;
+
         bool hasComponent = false;
         foreach (Component comp in g.GetComponents<Component>())
         {

@@ -65,12 +65,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4337506054094510}
   - component: {fileID: 212878492218311342}
-  - component: {fileID: 114048828740224510}
   - component: {fileID: 114117426116837428}
   - component: {fileID: 114903509051842784}
   - component: {fileID: 114560040506102892}
   - component: {fileID: 114512363534829050}
   - component: {fileID: 114170407053367232}
+  - component: {fileID: 114048828740224510}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -492,7 +492,7 @@ MonoBehaviour:
   effectTimer:
     time: 0.05
     Counter: 0
-  effectPower: 0.1
+  effectPower: 0.2
 --- !u!114 &114029677462474696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,6 +807,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114468013035406020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1033,6 +1035,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114637740540561438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,6 +1108,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114718503974541478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1161,6 +1167,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114735859278278680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1176,6 +1184,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114740065085743078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1217,6 +1227,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114783888053162686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  movement: {fileID: 0}
   shoot: {fileID: 0}
   Eye: {fileID: 1372712345015684}
   ObjectsOrbiting: {fileID: 114926424347770972}
@@ -1252,6 +1265,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114817032533374498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1336,6 +1351,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114903509051842784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1351,6 +1368,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 0.95, y: 0.95}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114926424347770972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,6 +1414,8 @@ MonoBehaviour:
   Offset: {x: 0, y: 0}
   resizeToScale: 1
   scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114978078855902064
 MonoBehaviour:
   m_ObjectHideFlags: 1

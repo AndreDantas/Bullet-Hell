@@ -1,14 +1,15 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
-public class Level : MonoBehaviour
+public class GameLevel : MonoBehaviour
 {
 
-    public LevelDetails levelDetails;
-    protected bool levelStarted;
+    public GameLevelDetails levelDetails;
+    public bool complete { get; private set; }
+    protected bool levelInProgress;
     [SerializeField, ReadOnly]
     protected bool spawningEnemies;
     protected List<GameObject> activeEnemies = new List<GameObject>();
@@ -24,13 +25,14 @@ public class Level : MonoBehaviour
     {
         if (levelDetails)
         {
+            complete = false;
             for (int i = activeEnemies.Count - 1; i >= 0; i--)
             {
                 Destroy(activeEnemies[i]);
             }
             activeEnemies.Clear();
             currentWave = 0;
-            levelStarted = true;
+            levelInProgress = true;
             StartCoroutine(SpawnWave());
         }
     }
@@ -88,7 +90,7 @@ public class Level : MonoBehaviour
 
     public bool LevelComplete()
     {
-        return currentWave >= levelDetails?.waves?.Count;
+        return complete = currentWave >= levelDetails?.waves?.Count;
     }
 
     private void Update()
@@ -104,15 +106,15 @@ public class Level : MonoBehaviour
             }
         }
 
-        if (!levelStarted)
+        if (!levelInProgress)
             return;
 
-        if (levelStarted && !spawningEnemies && activeEnemies?.Count == 0)
+        if (levelInProgress && !spawningEnemies && activeEnemies?.Count == 0)
         {
             StartCoroutine(SpawnWave());
         }
 
         if (activeEnemies?.Count == 0 && !spawningEnemies && LevelComplete())
-            levelStarted = false;
+            levelInProgress = false;
     }
 }

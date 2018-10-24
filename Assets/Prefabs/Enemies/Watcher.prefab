@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114653907252764946}
   - component: {fileID: 114171814552799386}
   - component: {fileID: 114447509175125412}
+  - component: {fileID: 114220994769458128}
   - component: {fileID: 114714980404923940}
   - component: {fileID: 114050393907549320}
   - component: {fileID: 114383967142676414}
@@ -42,10 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597122946097166}
   - component: {fileID: 212900406564193784}
-  - component: {fileID: 114545469968598458}
   - component: {fileID: 114898175265252264}
-  - component: {fileID: 114091059175126376}
-  - component: {fileID: 114220332995304620}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -127,27 +125,6 @@ MonoBehaviour:
   invincibleTime: 0
   elapsedInvincibleTime: 0
   wasDamaged: 0
---- !u!114 &114091059175126376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773972020219142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8569b4c18adac63408eda1e6632ba23b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootTimer:
-    time: 0.5
-    Counter: 0
-  data:
-    type: 2
-    position: {x: 0, y: 0}
-    direction: {x: 0, y: 0}
-    faction: 1
-    speed: 7
-    damage: 1
 --- !u!114 &114171814552799386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,17 +142,27 @@ MonoBehaviour:
   scaleMultiplier: {x: 1, y: 1}
   angle: 0
   useTransformRotation: 0
---- !u!114 &114220332995304620
+--- !u!114 &114220994769458128
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773972020219142}
+  m_GameObject: {fileID: 1418695783070690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Script: {fileID: 11500000, guid: 8569b4c18adac63408eda1e6632ba23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootTimer:
+    time: 0.5
+    Counter: 0
+  data:
+    type: 2
+    position: {x: 0, y: 0}
+    direction: {x: 0, y: 0}
+    faction: 1
+    speed: 7
+    damage: 1
 --- !u!114 &114383967142676414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +177,7 @@ MonoBehaviour:
   effectTimer:
     time: 0.05
     Counter: 0
-  effectPower: 0.3
+  effectPower: 0.2
 --- !u!114 &114447509175125412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,20 +193,6 @@ MonoBehaviour:
   movement: {fileID: 0}
   shoot: {fileID: 0}
   Eye: {fileID: 1773972020219142}
---- !u!114 &114545469968598458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773972020219142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1552218ca90d8e4f9b3c76992dc0b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  movement: {fileID: 0}
-  shoot: {fileID: 0}
 --- !u!114 &114653907252764946
 MonoBehaviour:
   m_ObjectHideFlags: 1

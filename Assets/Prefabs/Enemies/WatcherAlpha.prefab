@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114192740418618952}
   - component: {fileID: 114538902906085494}
   - component: {fileID: 114930665712178286}
+  - component: {fileID: 114964355881932164}
   - component: {fileID: 114655582463548796}
   - component: {fileID: 114124749245117674}
   - component: {fileID: 114394471212184970}
@@ -80,10 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4257327003772612}
   - component: {fileID: 212758158907840690}
-  - component: {fileID: 114471415713928924}
   - component: {fileID: 114782246553000046}
-  - component: {fileID: 114012477964183144}
-  - component: {fileID: 114524391890550782}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -146,27 +144,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114012477964183144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965396894822256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8569b4c18adac63408eda1e6632ba23b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootTimer:
-    time: 0.5
-    Counter: 0
-  data:
-    type: 2
-    position: {x: 0, y: 0}
-    direction: {x: 0, y: 0}
-    faction: 1
-    speed: 9
-    damage: 1
 --- !u!114 &114124749245117674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,31 +230,7 @@ MonoBehaviour:
   effectTimer:
     time: 0.05
     Counter: 0
-  effectPower: 0.1
---- !u!114 &114471415713928924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965396894822256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1552218ca90d8e4f9b3c76992dc0b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  shoot: {fileID: 0}
---- !u!114 &114524391890550782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965396894822256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  effectPower: 0.2
 --- !u!114 &114528086830315252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  movement: {fileID: 0}
   shoot: {fileID: 0}
   Eye: {fileID: 1965396894822256}
   Barrier: {fileID: 1863986599539388}
@@ -341,10 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 0.9
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114782246553000046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,10 +324,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0b99dfaa53ab48920e058947d50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: {x: 1, y: 1}
   Offset: {x: 0, y: 0}
   resizeToScale: 1
-  scaleMultiplier: 0.9
+  scaleMultiplier: {x: 1, y: 1}
+  angle: 0
+  useTransformRotation: 0
 --- !u!114 &114961360042289024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,6 +344,27 @@ MonoBehaviour:
   _sr: {fileID: 212760575947209734}
   flashTime: 0.2
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &114964355881932164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061554393876900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8569b4c18adac63408eda1e6632ba23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootTimer:
+    time: 0.5
+    Counter: 0
+  data:
+    type: 2
+    position: {x: 0, y: 0}
+    direction: {x: 0, y: 0}
+    faction: 1
+    speed: 9
+    damage: 1
 --- !u!212 &212720501379333832
 SpriteRenderer:
   m_ObjectHideFlags: 1

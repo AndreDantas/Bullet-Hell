@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 114231696983092072}
   - component: {fileID: 114504605317679482}
   - component: {fileID: 114157688387242394}
-  - component: {fileID: 114616628973856914}
   - component: {fileID: 114552840446563314}
   - component: {fileID: 114292574147240174}
+  - component: {fileID: 114616628973856914}
   m_Layer: 0
   m_Name: WatcherBeta
   m_TagString: Untagged
@@ -649,7 +649,7 @@ MonoBehaviour:
   effectTimer:
     time: 0.05
     Counter: 0
-  effectPower: 0.1
+  effectPower: 0.2
 --- !u!114 &114561576307811666
 MonoBehaviour:
   m_ObjectHideFlags: 1

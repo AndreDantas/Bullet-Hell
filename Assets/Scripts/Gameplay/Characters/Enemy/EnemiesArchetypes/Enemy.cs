@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Sirenix.OdinInspector;
 using Unity.Entities;
-public abstract class Enemy : MonoBehaviour
+using UnityEngine;
+using UnityEngine.UI;
+public abstract class Enemy : Character
 {
     public bool active = true;
     public Movement movement;
