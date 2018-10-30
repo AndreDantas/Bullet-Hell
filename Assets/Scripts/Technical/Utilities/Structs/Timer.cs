@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 [System.Serializable]
 public struct Timer
 {
@@ -13,7 +13,7 @@ public struct Timer
     public Timer(float time)
     {
         this.time = UtilityFunctions.ClampMin(time, 0f);
-        Counter = 0f;
+        counter = 0f;
         isFinished = false;
     }
 
@@ -36,11 +36,13 @@ public struct Timer
         }
     }
 
-
-    [ReadOnly, ProgressBar(0f, "Time")]
-    public float Counter;
+    private float counter;
+    [ShowInInspector, ReadOnly, ProgressBar(0f, "Time")]
+    public float Counter { get => counter; set => counter = Mathf.Clamp(value, 0f, Time); }
     [ReadOnly, ShowInInspector]
     public bool isFinished { get; private set; }
+
+
     [Button(ButtonSizes.Medium), ButtonGroup("G1")]
     public void Update()
     {
@@ -58,6 +60,18 @@ public struct Timer
         else
             isFinished = false;
 
+
+    }
+
+    public void Reverse()
+    {
+        if (isFinished)
+        {
+            isFinished = false;
+        }
+
+        Counter -= UnityEngine.Time.deltaTime;
+        Counter = UtilityFunctions.ClampMin(Counter, 0f);
 
     }
     [Button(ButtonSizes.Medium), ButtonGroup("G1")]

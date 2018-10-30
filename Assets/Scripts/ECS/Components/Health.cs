@@ -1,20 +1,20 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 public class Health : MonoBehaviour
 {
     [SerializeField, HideInInspector]
-    private float currentHealth = 10;
+    private int currentHealth = 10;
     [SerializeField, HideInInspector]
-    private float maxHealth = 10;
+    private int maxHealth = 10;
 
     [ShowInInspector]
-    public float CurrentHealth { get => currentHealth; set => currentHealth = Mathf.Clamp(value, 0, MaxHealth); }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = Mathf.Clamp(value, 0, MaxHealth); }
     [ShowInInspector]
-    public float MaxHealth { get => maxHealth; set => maxHealth = UtilityFunctions.ClampMin(value, 0); }
+    public int MaxHealth { get => maxHealth; set => maxHealth = UtilityFunctions.ClampMin(value, 0); }
 
     [ReadOnly]
     public bool isInvincible = false;

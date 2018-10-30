@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Player : Character
 {
 
@@ -18,4 +19,7 @@ public class Player : Character
     public bool moving = false;
 
     [ReadOnly] public int pointerID;
+
+
+
 }

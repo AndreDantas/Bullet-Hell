@@ -1,16 +1,15 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.Mathematics;
-using Sirenix.OdinInspector;
 using Unity.Entities;
+using Unity.Mathematics;
+using UnityEngine;
+using UnityEngine.UI;
 [UpdateAfter(typeof(BulletMovementSystem))]
 public class BulletDamageSystem : ComponentSystem
 {
-
-    struct ReceiverData
+    private struct ReceiverData
     {
         public int Length;
         public ComponentArray<Health> Health;
@@ -18,9 +17,9 @@ public class BulletDamageSystem : ComponentSystem
         public ComponentArray<CollisionRadius> Radius;
     }
 
-    [Inject] ReceiverData receivers;
+    [Inject] private ReceiverData receivers;
 
-    struct BulletData
+    private struct BulletData
     {
         public int Length;
         public ComponentArray<Faction> Faction;
@@ -29,7 +28,7 @@ public class BulletDamageSystem : ComponentSystem
 
     }
 
-    [Inject] BulletData bullets;
+    [Inject] private BulletData bullets;
 
     protected override void OnUpdate()
     {
@@ -45,7 +44,7 @@ public class BulletDamageSystem : ComponentSystem
 
             if (h.isInvincible)
                 continue;
-            float damage = 0f;
+            int damage = 0;
             var collisionRadius = col.Value;
 
 
@@ -63,7 +62,8 @@ public class BulletDamageSystem : ComponentSystem
                     if (UtilityFunctions.PointWhitinEllipse(shotPos, receiverPos, collisionRadius.x, collisionRadius.y, col.Angle))
                     {
 
-                        damage = bullets.Damage[si].Value;
+                        damage = UtilityFunctions.ClampMin(bullets.Damage[si].Value, 1);
+
 
                         bullets.Bullet[si].toRemove = true;
 
@@ -83,7 +83,7 @@ public class BulletDamageSystem : ComponentSystem
             if (damage > 0f)
             {
                 h.isInvincible = true;
-                h.CurrentHealth = math.max(h.CurrentHealth - damage, 0.0f);
+                h.CurrentHealth = Mathf.Max(h.CurrentHealth - damage, 0);
                 h.wasDamaged = true;
             }
 

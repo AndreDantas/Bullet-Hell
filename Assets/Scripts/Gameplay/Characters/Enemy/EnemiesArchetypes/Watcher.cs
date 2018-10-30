@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using Stats;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
+
 public class Watcher : CoreEnemy
 {
     public override int Id => 1;
@@ -20,7 +22,7 @@ public class Watcher : CoreEnemy
 
     protected override void Shoot()
     {
-        if (player)
+        if (player && player.gameObject.activeInHierarchy)
         {
             var dir = player.transform.position - transform.position;
             dir.Normalize();

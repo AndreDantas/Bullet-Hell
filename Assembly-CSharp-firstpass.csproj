@@ -110,8 +110,14 @@
     <Reference Include="Unity.Properties">
       <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.Properties.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VectorGraphics">
+      <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.003">
+      <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
@@ -127,6 +133,9 @@
     </Reference>
     <Reference Include="Unity.Properties.Editor">
       <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.Properties.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VectorGraphics.Editor">
+      <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.Hybrid">
       <HintPath>D:/Andre Dantas/Unity/BulletHellProject-master/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll</HintPath>

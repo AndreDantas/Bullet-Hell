@@ -646,6 +646,19 @@ public static class UtilityFunctions
         return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
     }
 
+    /// <summary>
+    /// Returns the midpoint between two vectors.
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static Vector3 MidPoint(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x + (b.x - a.x) / 2f,
+                           a.y + (b.y - a.y) / 2f,
+                           a.z + (b.z - a.z) / 2f);
+    }
+
     public static Vector3 ClampToBounds(this Vector3 v, Bounds b)
     {
         Vector3 pos = new Vector3(v.x, v.y, v.z);

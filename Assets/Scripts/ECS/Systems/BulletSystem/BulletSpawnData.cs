@@ -8,9 +8,9 @@ public struct BulletSpawnData
     public Vector2 direction;
     public Faction.Type faction;
     public float speed;
-    public float damage;
+    public int damage;
 
-    public BulletSpawnData(Vector2 position, Vector2 direction, float speed, float damage, BulletsTypes type, Faction.Type faction)
+    public BulletSpawnData(Vector2 position, Vector2 direction, float speed, int damage, BulletsTypes type, Faction.Type faction)
     {
         this.type = type;
         this.position = position;

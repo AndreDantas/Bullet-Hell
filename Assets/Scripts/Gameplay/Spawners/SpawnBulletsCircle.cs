@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 public class SpawnBulletsCircle : SpawnBullets
 {
 
@@ -19,11 +19,11 @@ public class SpawnBulletsCircle : SpawnBullets
 
     public SpawnBulletsCircle(int amount, BulletSpawnData data) : base(data)
     {
-        this.Amount = amount;
+        Amount = amount;
         width = height = 0f;
     }
 
-    public SpawnBulletsCircle(int amount) : base(new BulletSpawnData(Vector2.zero, Vector2.zero, 5f, 1f, BulletsTypes.Circle, Faction.Type.Enemy))
+    public SpawnBulletsCircle(int amount) : base(new BulletSpawnData(Vector2.zero, Vector2.zero, 5f, 1, BulletsTypes.Circle, Faction.Type.Enemy))
     {
         this.amount = amount;
 
