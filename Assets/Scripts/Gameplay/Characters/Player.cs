@@ -20,6 +20,4 @@ public class Player : Character
 
     [ReadOnly] public int pointerID;
 
-
-
 }
