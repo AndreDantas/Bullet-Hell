@@ -125,6 +125,7 @@ MonoBehaviour:
   invincibleTime: 0
   elapsedInvincibleTime: 0
   wasDamaged: 0
+  RemoveOnDeath: 1
 --- !u!114 &114171814552799386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,14 +155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootTimer:
-    time: 0.5
-    Counter: 0
+    time: 0.3
   data:
     type: 2
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
     faction: 1
-    speed: 7
+    speed: 9
     damage: 1
 --- !u!114 &114383967142676414
 MonoBehaviour:
@@ -176,7 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectTimer:
     time: 0.05
-    Counter: 0
   effectPower: 0.2
 --- !u!114 &114447509175125412
 MonoBehaviour:

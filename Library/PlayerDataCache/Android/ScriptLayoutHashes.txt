@@ -61,7 +61,7 @@ a44114bd4fa541174f78b4bb92bacb48 UnityEngine.UI.dll:UnityEngine.EventSystems.Sta
 e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 2d58ca16854b99daea8c45e9c0f367b7 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-196c282c0ac93b2b52405cd6e36b7d05 Assembly-CSharp.dll:.HealthUI
+670b3155d22334c54869c98c80b3e138 Assembly-CSharp.dll:.HealthUI
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp-firstpass.dll:.ExampleScript
 486cd95c82d8305219c352c06b776e1f Unity.Transforms.Hybrid.dll:Unity.Transforms.CopyTransformToGameObjectComponent
 b96464cd8e900eaccfe7377b9df3e4cc Unity.Rendering.Hybrid.dll:Unity.Rendering.MeshInstanceRendererComponent
@@ -280,7 +280,7 @@ bf9092984e391e854436c93547ae117f Sirenix.OdinInspector.Editor.dll:Sirenix.OdinIn
 3849a4a3724db50d34d964f17b47c09d Sirenix.OdinInspector.Editor.dll:Sirenix.Utilities.Editor.SerializationDebuggerWindow
 b16e5e1e34802bf1ae812605c0c3c017 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.SirenixPreferencesWindow
 7f34213a8615975d7b80a9b291f35c72 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.StaticInspectorWindow
-f800f27172ed3897df7169f0356e3063 Assembly-CSharp.dll:.PlayerHealthUI
+4b13c0c5dc8a2c7465b802724788239e Assembly-CSharp.dll:.PlayerHealthUI
 bb3f8ae71cc0b231bf331b52aca45ebd Assembly-CSharp.dll:TMPro.Examples.CameraController
 486cd95c82d8305219c352c06b776e1f Unity.Transforms.Hybrid.dll:Unity.Transforms.CopyInitialTransformFromGameObjectComponent
 3a6b7f86d03fa8cfb544f056fab1d4e9 Assembly-CSharp.dll:.BulletRemoveTime

@@ -1,13 +1,28 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 [System.Serializable]
+public class MoveBetweenPointsDetails : MovementDetails
+{
+    public float moveTime = 5f;
+    public MoveBetweenPoints.MoveType type = MoveBetweenPoints.MoveType.Cycle;
+    public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
+    public float waitTime = 0.5f;
+    public List<Vector2> path = new List<Vector2>();
+
+    public override void AddMovementComponent(GameObject obj)
+    {
+        obj.gameObject.AddComponent<MoveBetweenPoints>().SetMovement(this);
+
+    }
+}
 public class MoveBetweenPoints : Movement
 {
     public enum MoveType { Cycle, PingPong }
+    public float moveTime = 5f;
 
     public MoveType type = MoveType.Cycle;
     protected bool reversing;
@@ -73,6 +88,19 @@ public class MoveBetweenPoints : Movement
             var point = path[i];
 
             UtilityFunctions.GizmosDrawCross(point, gizmosColor: Color.red);
+        }
+    }
+
+    public override void SetMovement(MovementDetails details)
+    {
+        if (details is MoveBetweenPointsDetails)
+        {
+            MoveBetweenPointsDetails d = (MoveBetweenPointsDetails)details;
+            moveEquation = d.moveEquation;
+            moveTime = d.moveTime;
+            type = d.type;
+            waitTime = new Timer(d.waitTime);
+            path = d.path;
         }
     }
 }

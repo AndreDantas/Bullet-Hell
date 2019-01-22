@@ -14,6 +14,11 @@ public abstract class Enemy : Character
     protected Player player;
     protected virtual void Awake()
     {
+        Init();
+    }
+
+    public virtual void Init()
+    {
         if (!shoot)
             shoot = GetComponent<Shoot>();
         if (!movement)

@@ -1,11 +1,28 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
+[System.Serializable]
+public class MoveRandomAreaDetails : MovementDetails
+{
+    public float moveTime = 5;
+    public bool scaleToScreenSize;
+    public Bounds area;
+    public float waitTime = 0.5f;
+    public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
+
+    public override void AddMovementComponent(GameObject obj)
+    {
+        obj.gameObject.AddComponent<MoveRandomArea>().SetMovement(this);
+    }
+}
+
 public class MoveRandomArea : Movement
 {
+    public float moveTime = 5f;
+
     public bool scaleToScreenSize;
     public Bounds area;
     public Timer waitTime = new Timer(0.5f, true);
@@ -61,5 +78,18 @@ public class MoveRandomArea : Movement
 
         if (isMoving)
             UtilityFunctions.GizmosDrawCross(destination, gizmosColor: Color.red);
+    }
+
+    public override void SetMovement(MovementDetails details)
+    {
+        if (details is MoveRandomAreaDetails)
+        {
+            MoveRandomAreaDetails d = (MoveRandomAreaDetails)details;
+            scaleToScreenSize = d.scaleToScreenSize;
+            moveEquation = d.moveEquation;
+            moveTime = d.moveTime;
+            area = d.area;
+            waitTime = new Timer(d.waitTime);
+        }
     }
 }

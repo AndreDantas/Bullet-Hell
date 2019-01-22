@@ -8,6 +8,7 @@ public class PlayerHealthUI : HealthUI
 {
 
     public Player player;
+    public Vector2 UIScale = Vector2.one;
     public CanvasGroup cg;
     protected Health playerHealth;
 
@@ -24,6 +25,13 @@ public class PlayerHealthUI : HealthUI
         }
         base.Awake();
 
+    }
+
+    public override void InitHealth()
+    {
+        base.InitHealth();
+        if (UIRect)
+            UIRect.localScale = UIScale;
     }
 
     private void Update()

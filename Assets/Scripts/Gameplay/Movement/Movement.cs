@@ -1,12 +1,17 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
+[System.Serializable]
+public abstract class MovementDetails
+{
+    public abstract void AddMovementComponent(GameObject obj);
+}
+
 public abstract class Movement : MonoBehaviour
 {
-    public float moveTime = 5f;
 
     public bool active = true;
     protected bool isMoving;
@@ -17,4 +22,5 @@ public abstract class Movement : MonoBehaviour
         isMoving = false;
     }
 
+    public abstract void SetMovement(MovementDetails details);
 }

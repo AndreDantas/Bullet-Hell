@@ -110,20 +110,19 @@ public static class UtilityFunctions
     /// <returns>Rotated point</returns>
     public static Vector2 RotatePoint(Vector2 pointToRotate, Vector2 centerPoint, float angleInDegrees)
     {
+
         float angleInRadians = angleInDegrees * (Mathf.PI / 180);
+
         float cosTheta = Mathf.Cos(angleInRadians);
         float sinTheta = Mathf.Sin(angleInRadians);
-        return new Vector2
-        {
-            x =
 
-                (cosTheta * (pointToRotate.x - centerPoint.x) -
-                sinTheta * (pointToRotate.y - centerPoint.y) + centerPoint.x),
-            y =
+        float originX = pointToRotate.x - centerPoint.x;
+        float originY = pointToRotate.y - centerPoint.y;
 
-                (sinTheta * (pointToRotate.x - centerPoint.x) +
-                cosTheta * (pointToRotate.y - centerPoint.y) + centerPoint.y)
-        };
+        float newX = originX * cosTheta - originY * sinTheta;
+        float newY = (originX * sinTheta) * (angleInDegrees >= 0 ? 1 : -1) + originY * cosTheta;
+
+        return new Vector2(newX + centerPoint.x, newY + centerPoint.y);
     }
 
     /// <summary>
@@ -136,6 +135,26 @@ public static class UtilityFunctions
     public static List<Vector2> CalculateCirclePoints(int points, Vector2? positionReference = null, float diameter = 1f)
     {
         return CalculateEllipsePoints(points, positionReference, diameter, diameter);
+    }
+
+    /// <summary>
+    /// Returns the closest point in a circle to a given point.
+    /// </summary>
+    /// <param name="point"></param>
+    /// <param name="circleCenter"></param>
+    /// <param name="radius"></param>
+    /// <returns></returns>
+    public static Vector2 ShortestPointInCircle(Vector2 point, Vector2 circleCenter, float radius)
+    {
+        float vx = point.x - circleCenter.x;
+        float vy = point.y - circleCenter.y;
+
+        float magV = Mathf.Sqrt(vx * vx + vy * vy);
+
+        float closestPointX = circleCenter.x + vx / magV * radius;
+        float closestPointY = circleCenter.y + vy / magV * radius;
+
+        return new Vector2(closestPointX, closestPointY);
     }
 
     /// <summary>
@@ -636,6 +655,14 @@ public static class UtilityFunctions
     #endregion
 
     #region Vectors
+
+    public static float Distance(Vector3 v1, Vector3 v2)
+    {
+        return Mathf.Sqrt((v2.x - v1.x) * (v2.x - v1.x) +
+                             (v2.y - v1.y) * (v2.y - v1.y) +
+                             (v2.z - v1.z) * (v2.z - v1.z));
+    }
+
     public static Vector3 RoundVector3(Vector3 v)
     {
         return new Vector3(Mathf.Round(v.x), Mathf.Round(v.y), Mathf.Round(v.z));
@@ -700,6 +727,38 @@ public static class UtilityFunctions
             return g.AddComponent<T>();
         else
             return g.GetComponent<T>();
+    }
+
+    /// <summary>
+    /// Adds a component to a GameObject if it doesn't have the same type.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="g"></param>
+    /// <returns></returns>
+    public static T AddComponentOnce<T>(this GameObject g) where T : Component
+    {
+        if (g.GetComponent<T>() == null)
+            return g.AddComponent<T>();
+
+        return null;
+    }
+
+    /// <summary>
+    /// Replaces or adds a component to a GameObject.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="g"></param>
+    /// <returns></returns>
+    public static T ReplaceOrAddComponent<T>(this GameObject g) where T : Component
+    {
+        var c = g.GetComponent<T>();
+        while (c != null)
+        {
+            UnityEngine.Object.Destroy(c);
+            c = g.GetComponent<T>();
+        }
+
+        return g.AddComponent<T>();
     }
 
 
@@ -1100,6 +1159,27 @@ public static class UtilityFunctions
         Gizmos.color = gizmosColor ?? Color.green;
         Gizmos.DrawLine(new Vector3(pos.x, pos.y - size / 2f, 0f), new Vector3(pos.x, pos.y + size / 2f));
         Gizmos.DrawLine(new Vector3(pos.x - size / 2f, pos.y, 0f), new Vector3(pos.x + size / 2f, pos.y));
+    }
+
+    /// <summary>
+    /// Draws an arrow from one point to the other.
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <param name="headArc"></param>
+    /// <param name="headLength"></param>
+    /// <param name="gizmosColor"></param>
+    public static void GizmosDrawArrow(Vector2 start, Vector2 end, float headArc = 90f, float headLength = 0.5f, Color? gizmosColor = null)
+    {
+        Gizmos.color = gizmosColor ?? Color.green;
+
+        Gizmos.DrawLine(start, end);
+        headArc = ClampAngle(headArc);
+        var angle = (start - end).normalized.GetAngle() + 180;
+
+        Gizmos.DrawLine(end, end - (angle + headArc / 2f).GetAngleDirection() * headLength);
+        Gizmos.DrawLine(end, end - (angle - headArc / 2f).GetAngleDirection() * headLength);
+
     }
 
     /// <summary>

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   waves:
-  - skipWave: 0
+  - skipWave: 1
     waveDelay: 0
     spawns:
     - spawnDelay: 0
@@ -23,6 +23,26 @@ MonoBehaviour:
       endPoint: {x: -0.5, y: 0.8}
       moveTime: 2
       moveEquation: 7
+      MovementType:
+        movementType: 0
+        moveBetweenPointsDetails:
+          moveTime: 5
+          type: 0
+          moveEquation: 7
+          waitTime: 0.5
+          path: []
+        moveRandomAreaDetails:
+          moveTime: 5
+          scaleToScreenSize: 0
+          area:
+            m_Center: {x: 0, y: 0, z: 0}
+            m_Extent: {x: 0, y: 0, z: 0}
+          waitTime: 0.5
+          moveEquation: 7
+        moveCircleDetails:
+          rotateSpeed: 5
+          radius: 1
+          center: {x: 0, y: 0}
     - spawnDelay: 0
       enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
         type: 2}
@@ -31,6 +51,26 @@ MonoBehaviour:
       endPoint: {x: 0.5, y: 0.8}
       moveTime: 2
       moveEquation: 7
+      MovementType:
+        movementType: 0
+        moveBetweenPointsDetails:
+          moveTime: 5
+          type: 0
+          moveEquation: 7
+          waitTime: 0.5
+          path: []
+        moveRandomAreaDetails:
+          moveTime: 5
+          scaleToScreenSize: 0
+          area:
+            m_Center: {x: 0, y: 0, z: 0}
+            m_Extent: {x: 0, y: 0, z: 0}
+          waitTime: 0.5
+          moveEquation: 7
+        moveCircleDetails:
+          rotateSpeed: 5
+          radius: 1
+          center: {x: 0, y: 0}
     - spawnDelay: 0.5
       enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
         type: 2}
@@ -39,6 +79,26 @@ MonoBehaviour:
       endPoint: {x: -0.5, y: 0.4}
       moveTime: 2
       moveEquation: 7
+      MovementType:
+        movementType: 0
+        moveBetweenPointsDetails:
+          moveTime: 5
+          type: 0
+          moveEquation: 7
+          waitTime: 0.5
+          path: []
+        moveRandomAreaDetails:
+          moveTime: 5
+          scaleToScreenSize: 0
+          area:
+            m_Center: {x: 0, y: 0, z: 0}
+            m_Extent: {x: 0, y: 0, z: 0}
+          waitTime: 0.5
+          moveEquation: 7
+        moveCircleDetails:
+          rotateSpeed: 5
+          radius: 1
+          center: {x: 0, y: 0}
     - spawnDelay: 0
       enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
         type: 2}
@@ -47,6 +107,26 @@ MonoBehaviour:
       endPoint: {x: 0.5, y: 0.4}
       moveTime: 2
       moveEquation: 7
+      MovementType:
+        movementType: 0
+        moveBetweenPointsDetails:
+          moveTime: 5
+          type: 0
+          moveEquation: 7
+          waitTime: 0.5
+          path: []
+        moveRandomAreaDetails:
+          moveTime: 5
+          scaleToScreenSize: 0
+          area:
+            m_Center: {x: 0, y: 0, z: 0}
+            m_Extent: {x: 0, y: 0, z: 0}
+          waitTime: 0.5
+          moveEquation: 7
+        moveCircleDetails:
+          rotateSpeed: 5
+          radius: 1
+          center: {x: 0, y: 0}
   - skipWave: 0
     waveDelay: 3
     spawns:
@@ -58,3 +138,23 @@ MonoBehaviour:
       endPoint: {x: 0, y: 0.5}
       moveTime: 1
       moveEquation: 7
+      MovementType:
+        movementType: 3
+        moveBetweenPointsDetails:
+          moveTime: 5
+          type: 0
+          moveEquation: 7
+          waitTime: 0.5
+          path: []
+        moveRandomAreaDetails:
+          moveTime: 5
+          scaleToScreenSize: 0
+          area:
+            m_Center: {x: 0, y: 0, z: 0}
+            m_Extent: {x: 0, y: 0, z: 0}
+          waitTime: 0.5
+          moveEquation: 7
+        moveCircleDetails:
+          rotateSpeed: 5
+          radius: 5
+          center: {x: 0, y: 5}

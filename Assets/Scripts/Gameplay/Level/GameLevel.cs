@@ -18,6 +18,7 @@ public class GameLevel : MonoBehaviour
 
     private void Start()
     {
+
         StartLevel();
     }
 
@@ -53,11 +54,12 @@ public class GameLevel : MonoBehaviour
             {
 
                 var spawn = wave.spawns[i];
-                if (spawn.enemyPrefab)
+                if (spawn?.enemyPrefab)
                 {
                     yield return new WaitForSeconds(spawn.spawnDelay);
 
                     var enemy = Instantiate(spawn.enemyPrefab).GetComponent<Enemy>();
+
                     Vector2 start, end;
                     if (spawn.scaleToScreenSize)
                     {
@@ -72,13 +74,21 @@ public class GameLevel : MonoBehaviour
                     }
                     activeEnemies.Add(enemy.gameObject);
 
+
+                    spawn.MovementType?.GetDetails()?.AddMovementComponent(enemy.gameObject);
+                    //Debug.Log(spawn.MovementType?.GetDetails());
                     enemy.active = false;
                     enemy.gameObject.Activate();
                     enemy.transform.position = start;
 
+                    enemy.Init();
+
                     var t = enemy.transform.MoveTo(end, spawn.moveTime, EasingEquations.GetEquation(spawn.moveEquation));
                     t.destroyOnDisable = true;
-                    t.easingControl.completedEvent += (object sender, System.EventArgs args) => enemy.active = true;
+                    t.easingControl.completedEvent += (object sender, System.EventArgs args) =>
+                    {
+                        enemy.active = true;
+                    };
                 }
             }
 

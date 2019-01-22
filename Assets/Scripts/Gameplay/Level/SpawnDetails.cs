@@ -16,6 +16,9 @@ public class SpawnDetails
     [BoxGroup("Split/Spawn Movement"), LabelWidth(100)] public float moveTime = 1f;
     [BoxGroup("Split/Spawn Movement"), LabelWidth(100)] public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutQuad;
 
+    [SerializeField]
+    public MovementTypeSelect MovementType;
+
     private bool EnemyOnly(GameObject obj)
     {
         return obj.CheckForComponent<Enemy>();

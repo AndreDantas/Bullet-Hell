@@ -25,7 +25,9 @@ public class Health : MonoBehaviour
     public bool wasDamaged = false;
 
     [ShowInInspector, ReadOnly]
-    public bool isDead { get { return currentHealth <= 0; } }
+    public bool isDead { get => currentHealth <= 0; }
+
+    public bool RemoveOnDeath = true;
 
     private void OnDisable()
     {
