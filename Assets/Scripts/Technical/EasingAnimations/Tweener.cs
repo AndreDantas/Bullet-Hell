@@ -44,6 +44,87 @@ public abstract class Tweener : MonoBehaviour
     }
     #endregion
 }
+public class BezierCurveTweener : Tweener
+{
+    public BezierCurve curve;
+    public Vector3 currentValue { get; private set; }
+    public delegate void BezierCurveTweenerEventHandler();
+    public event BezierCurveTweenerEventHandler OnAnimationComplete;
+    public event BezierCurveTweenerEventHandler OnUpdateAnimation;
+
+    protected List<Vector3> pathPoints;
+    protected List<float> distances;
+
+    protected override void OnUpdate(object sender, EventArgs e)
+    {
+        if (pathPoints == null)
+            pathPoints = curve?.GetPathPoints();
+        if (distances == null)
+            distances = curve?.GetDistanceProgress();
+        transform.position = GetPoint(pathPoints, distances, easingControl.currentValue);
+        OnUpdateAnimation?.Invoke();
+    }
+    protected override void OnComplete(object sender, EventArgs e)
+    {
+        base.OnComplete(sender, e);
+        OnAnimationComplete?.Invoke();
+    }
+    protected Vector3 GetPoint(List<Vector3> pathPoints, List<float> distances, Float01 currentValue)
+    {
+
+        if (pathPoints == null || distances == null)
+            return transform.position;
+
+        if (pathPoints.Count > 0 && distances.Count > 0)
+        {
+            var len = pathPoints.Count;
+            var left = 0;
+            var right = len - 1;
+            var mid = 0;
+
+            var target = Mathf.Lerp(0, distances[distances.Count - 1], currentValue);
+
+            if (target >= distances[len - 1])
+                return pathPoints[len - 1];
+
+            if (target <= distances[0])
+                return pathPoints[0];
+
+            while (left < right)
+            {
+                mid = (left + right) / 2;
+
+                if (target < distances[mid])
+                    right = mid;
+                else if (target > distances[mid])
+                    left = mid;
+                else
+                    return pathPoints[mid];
+                if (Mathf.Abs(left - right) <= 1)
+                    break;
+            }
+
+            if (target < distances[mid])
+            {
+
+                var localDistance = distances[mid] - distances[mid - 1];
+                var localTarget = target - distances[mid - 1];
+
+                return Vector3.Lerp(pathPoints[mid - 1], pathPoints[mid], localTarget / localDistance);
+            }
+            else
+            {
+
+                var localDistance = distances[mid + 1] - distances[mid];
+                var localTarget = target - distances[mid];
+
+                return Vector3.Lerp(pathPoints[mid], pathPoints[mid + 1], localTarget / localDistance);
+            }
+        }
+        return transform.position;
+    }
+}
+
 public abstract class Vector3Tweener : Tweener
 {
     public Vector3 startValue;
@@ -56,14 +137,12 @@ public abstract class Vector3Tweener : Tweener
     protected override void OnUpdate(object sender, System.EventArgs e)
     {
         currentValue = (endValue - startValue) * easingControl.currentValue + startValue;
-        if (OnUpdateAnimation != null)
-            OnUpdateAnimation();
+        OnUpdateAnimation?.Invoke();
     }
 
     protected override void OnComplete(object sender, EventArgs e)
     {
-        if (OnAnimationComplete != null)
-            OnAnimationComplete();
+        OnAnimationComplete?.Invoke();
         base.OnComplete(sender, e);
     }
 }

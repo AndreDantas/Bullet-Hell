@@ -12,134 +12,14 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   waves:
-  - skipWave: 1
-    waveDelay: 0
-    spawns:
-    - spawnDelay: 0
-      enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      scaleToScreenSize: 1
-      startPoint: {x: -1.5, y: 0.8}
-      endPoint: {x: -0.5, y: 0.8}
-      moveTime: 2
-      moveEquation: 7
-      MovementType:
-        movementType: 0
-        moveBetweenPointsDetails:
-          moveTime: 5
-          type: 0
-          moveEquation: 7
-          waitTime: 0.5
-          path: []
-        moveRandomAreaDetails:
-          moveTime: 5
-          scaleToScreenSize: 0
-          area:
-            m_Center: {x: 0, y: 0, z: 0}
-            m_Extent: {x: 0, y: 0, z: 0}
-          waitTime: 0.5
-          moveEquation: 7
-        moveCircleDetails:
-          rotateSpeed: 5
-          radius: 1
-          center: {x: 0, y: 0}
-    - spawnDelay: 0
-      enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      scaleToScreenSize: 1
-      startPoint: {x: 1.5, y: 0.8}
-      endPoint: {x: 0.5, y: 0.8}
-      moveTime: 2
-      moveEquation: 7
-      MovementType:
-        movementType: 0
-        moveBetweenPointsDetails:
-          moveTime: 5
-          type: 0
-          moveEquation: 7
-          waitTime: 0.5
-          path: []
-        moveRandomAreaDetails:
-          moveTime: 5
-          scaleToScreenSize: 0
-          area:
-            m_Center: {x: 0, y: 0, z: 0}
-            m_Extent: {x: 0, y: 0, z: 0}
-          waitTime: 0.5
-          moveEquation: 7
-        moveCircleDetails:
-          rotateSpeed: 5
-          radius: 1
-          center: {x: 0, y: 0}
-    - spawnDelay: 0.5
-      enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      scaleToScreenSize: 1
-      startPoint: {x: -1.5, y: 0.4}
-      endPoint: {x: -0.5, y: 0.4}
-      moveTime: 2
-      moveEquation: 7
-      MovementType:
-        movementType: 0
-        moveBetweenPointsDetails:
-          moveTime: 5
-          type: 0
-          moveEquation: 7
-          waitTime: 0.5
-          path: []
-        moveRandomAreaDetails:
-          moveTime: 5
-          scaleToScreenSize: 0
-          area:
-            m_Center: {x: 0, y: 0, z: 0}
-            m_Extent: {x: 0, y: 0, z: 0}
-          waitTime: 0.5
-          moveEquation: 7
-        moveCircleDetails:
-          rotateSpeed: 5
-          radius: 1
-          center: {x: 0, y: 0}
-    - spawnDelay: 0
-      enemyPrefab: {fileID: 1418695783070690, guid: 04661d40d98f74b419923e09b5e5bcb3,
-        type: 2}
-      scaleToScreenSize: 1
-      startPoint: {x: 1.5, y: 0.4}
-      endPoint: {x: 0.5, y: 0.4}
-      moveTime: 2
-      moveEquation: 7
-      MovementType:
-        movementType: 0
-        moveBetweenPointsDetails:
-          moveTime: 5
-          type: 0
-          moveEquation: 7
-          waitTime: 0.5
-          path: []
-        moveRandomAreaDetails:
-          moveTime: 5
-          scaleToScreenSize: 0
-          area:
-            m_Center: {x: 0, y: 0, z: 0}
-            m_Extent: {x: 0, y: 0, z: 0}
-          waitTime: 0.5
-          moveEquation: 7
-        moveCircleDetails:
-          rotateSpeed: 5
-          radius: 1
-          center: {x: 0, y: 0}
   - skipWave: 0
-    waveDelay: 3
+    waveDelay: 0
     spawns:
     - spawnDelay: 0
       enemyPrefab: {fileID: 1262439287043654, guid: be40f4dc071857149b9073a8a3ab1165,
         type: 2}
-      scaleToScreenSize: 1
-      startPoint: {x: 0, y: 1.5}
-      endPoint: {x: 0, y: 0.5}
-      moveTime: 1
-      moveEquation: 7
       MovementType:
-        movementType: 3
+        movementType: 2
         moveBetweenPointsDetails:
           moveTime: 5
           type: 0
@@ -155,6 +35,25 @@ MonoBehaviour:
           waitTime: 0.5
           moveEquation: 7
         moveCircleDetails:
-          rotateSpeed: 5
-          radius: 5
+          scaleToScreenSize: 0
+          rotateSpeed: -6
+          radius: 4
           center: {x: 0, y: 5}
+      spawnMovement:
+        movementType: 1
+        spawnMovementLinear:
+          scaleToScreenSize: 0
+          startPoint: {x: 0, y: 0}
+          endPoint: {x: 0, y: 0}
+          moveTime: 1
+          moveEquation: 4
+        spawnMovementBezier:
+          scaleToScreenSize: 1
+          curve:
+            lineControlPoints:
+            - {x: -1.5, y: 0, z: 0}
+            - {x: -1.5, y: 0.5, z: 1}
+            - {x: 0, y: 0.5, z: 0}
+            curvePointsCount: 10
+          moveTime: 1.8
+          moveEquation: 0

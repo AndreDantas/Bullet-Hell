@@ -25,6 +25,25 @@ public static class TransformExtensions
         tweener.easingControl.Play();
         return tweener;
     }
+    public static Tweener MoveInBezierCurve(this Transform t, BezierCurve curve)
+    {
+        return MoveInBezierCurve(t, curve, Tweener.DefaultDuration);
+    }
+
+    public static Tweener MoveInBezierCurve(this Transform t, BezierCurve curve, float duration)
+    {
+        return MoveInBezierCurve(t, curve, duration, Tweener.DefaultEquation);
+    }
+
+    public static Tweener MoveInBezierCurve(this Transform t, BezierCurve curve, float duration, Func<float, float, float, float> equation)
+    {
+        BezierCurveTweener tweener = t.gameObject.AddComponent<BezierCurveTweener>();
+        tweener.curve = curve;
+        tweener.easingControl.duration = duration;
+        tweener.easingControl.equation = equation;
+        tweener.easingControl.Play();
+        return tweener;
+    }
 
     public static Tweener MoveToLocal(this Transform t, Vector3 position)
     {

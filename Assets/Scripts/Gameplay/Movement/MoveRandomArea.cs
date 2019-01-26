@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MoveRandomAreaDetails : MovementDetails
 {
     public float moveTime = 5;
-    public bool scaleToScreenSize;
+    [LabelWidth(200)] public bool scaleToScreenSize;
     public Bounds area;
     public float waitTime = 0.5f;
     public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
@@ -28,11 +28,7 @@ public class MoveRandomArea : Movement
     public Timer waitTime = new Timer(0.5f, true);
     public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
     protected Vector2 destination;
-    protected UnitaryQuadrant uq;
-    private void Start()
-    {
-        uq = new UnitaryQuadrant(Vector2.zero, UtilityFunctions.ScreenWidth, UtilityFunctions.ScreenHeight);
-    }
+
     public override void Move()
     {
         if (!active)
@@ -49,7 +45,14 @@ public class MoveRandomArea : Movement
                 if (!scaleToScreenSize)
                     destination = area.RandomPoint();
                 else
-                    destination = uq.GetPoint(area.RandomPoint());
+                {
+                    var w = UtilityFunctions.ScreenWidth;
+                    var h = UtilityFunctions.ScreenHeight;
+
+                    Bounds b = new Bounds(UnitaryQuadrant.Screen.GetPoint(area.center), new Vector3(w * area.size.x, h * area.size.y));
+
+                    destination = b.RandomPoint();
+                }
 
                 isMoving = true;
                 var t = transform.MoveTo(destination, moveTime, EasingEquations.GetEquation(moveEquation));
@@ -62,7 +65,7 @@ public class MoveRandomArea : Movement
     }
 
 
-    private void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         if (!scaleToScreenSize)
             UtilityFunctions.GizmosDrawBounds(area);
@@ -70,8 +73,8 @@ public class MoveRandomArea : Movement
         {
             var w = UtilityFunctions.ScreenWidth;
             var h = UtilityFunctions.ScreenHeight;
-            var uq = new UnitaryQuadrant(Vector2.zero, w, h);
-            Bounds b = new Bounds(uq.GetPoint(area.center), new Vector3(w * area.size.x, h * area.size.y));
+
+            Bounds b = new Bounds(UnitaryQuadrant.Screen.GetPoint(area.center), new Vector3(w * area.size.x, h * area.size.y));
 
             UtilityFunctions.GizmosDrawBounds(b);
         }

@@ -60,35 +60,22 @@ public class GameLevel : MonoBehaviour
 
                     var enemy = Instantiate(spawn.enemyPrefab).GetComponent<Enemy>();
 
-                    Vector2 start, end;
-                    if (spawn.scaleToScreenSize)
-                    {
-                        var uq = new UnitaryQuadrant(UtilityFunctions.ScreenWidth, UtilityFunctions.ScreenHeight);
-                        start = uq.GetPoint(spawn.startPoint);
-                        end = uq.GetPoint(spawn.endPoint);
-                    }
-                    else
-                    {
-                        start = spawn.startPoint;
-                        end = spawn.endPoint;
-                    }
-                    activeEnemies.Add(enemy.gameObject);
-
-
-                    spawn.MovementType?.GetDetails()?.AddMovementComponent(enemy.gameObject);
-                    //Debug.Log(spawn.MovementType?.GetDetails());
-                    enemy.active = false;
-                    enemy.gameObject.Activate();
-                    enemy.transform.position = start;
-
-                    enemy.Init();
-
-                    var t = enemy.transform.MoveTo(end, spawn.moveTime, EasingEquations.GetEquation(spawn.moveEquation));
+                    var t = spawn.spawnMovement.GetMovement().SetSpawnObjectMovement(enemy.gameObject);
                     t.destroyOnDisable = true;
                     t.easingControl.completedEvent += (object sender, System.EventArgs args) =>
                     {
                         enemy.active = true;
                     };
+
+                    activeEnemies.Add(enemy.gameObject);
+
+                    spawn.MovementType?.GetDetails()?.AddMovementComponent(enemy.gameObject);
+                    //Debug.Log(spawn.MovementType?.GetDetails());
+                    enemy.active = false;
+                    enemy.gameObject.Activate();
+                    enemy.Init();
+
+
                 }
             }
 

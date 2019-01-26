@@ -107,9 +107,12 @@
     <Compile Include="Assets\Scripts\Gameplay\Characters\Enemy\EnemiesAttacks\EnemyShootWhereLooking.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Characters\Enemy\EnemiesAttacks\HunterEnemy.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Characters\Player.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\EnemySpawn\SpawnDetails.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\EnemySpawn\SpawnMovement.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\EnemySpawn\SpawnMovementBezier.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\EnemySpawn\SpawnMovementLinear.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Level\GameLevel.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Level\GameLevelDetails.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Level\SpawnDetails.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Level\WaveDetails.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Modifiers\BulletFollowModifier.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Modifiers\BulletMimicModifier.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Movement\MovementTypeSelect.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Movement\MoveRandomArea.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Movement\MoveRandomAreaSmooth.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Spawners\SpawnBullets.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Spawners\SpawnBulletsCircle.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Spawners\SpawnBulletsDirection.cs" />
@@ -160,6 +164,9 @@
     <Compile Include="Assets\Scripts\Technical\UI\HealthUI\PlayerHealthUI.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\AudioUtilities.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\BringToFront.cs" />
+    <Compile Include="Assets\Scripts\Technical\Utilities\Classes\BezierCurve.cs" />
+    <Compile Include="Assets\Scripts\Technical\Utilities\Classes\ObjectPair.cs" />
+    <Compile Include="Assets\Scripts\Technical\Utilities\Classes\SerializableType.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\Color Scripts\ChangeToRandomColor.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\Color Scripts\Colors.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\Color Scripts\ColorTypeConverter.cs" />
@@ -168,7 +175,6 @@
     <Compile Include="Assets\Scripts\Technical\Utilities\Color Scripts\SpriteRendererRandomColorChange.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\ExpandableAttributes\ExpandableAttribute.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\GameQualitySettings.cs" />
-    <Compile Include="Assets\Scripts\Technical\Utilities\ObjectPair.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\ParticlesAutoDestroy.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\PoissonDiskGenerator.cs" />
     <Compile Include="Assets\Scripts\Technical\Utilities\ProceduralMeshRenderer.cs" />

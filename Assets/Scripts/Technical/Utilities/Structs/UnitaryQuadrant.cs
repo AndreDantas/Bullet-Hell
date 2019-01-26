@@ -1,13 +1,13 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 [System.Serializable]
 public struct UnitaryQuadrant
 {
-
+    public static UnitaryQuadrant Screen = new UnitaryQuadrant(Vector2.zero, UtilityFunctions.ScreenWidth, UtilityFunctions.ScreenHeight);
     public Vector2 center;
     [SerializeField, HideInInspector]
     private float width;

@@ -111,7 +111,7 @@ public static class UtilityFunctions
     public static Vector2 RotatePoint(Vector2 pointToRotate, Vector2 centerPoint, float angleInDegrees)
     {
 
-        float angleInRadians = angleInDegrees * (Mathf.PI / 180);
+        float angleInRadians = Mathf.Abs(angleInDegrees) * (Mathf.PI / 180);
 
         float cosTheta = Mathf.Cos(angleInRadians);
         float sinTheta = Mathf.Sin(angleInRadians);
@@ -119,8 +119,18 @@ public static class UtilityFunctions
         float originX = pointToRotate.x - centerPoint.x;
         float originY = pointToRotate.y - centerPoint.y;
 
-        float newX = originX * cosTheta - originY * sinTheta;
-        float newY = (originX * sinTheta) * (angleInDegrees >= 0 ? 1 : -1) + originY * cosTheta;
+        float newX = 0, newY = 0;
+        if (angleInDegrees >= 0)
+        {
+            newX = originX * cosTheta - originY * sinTheta;
+            newY = originX * sinTheta + originY * cosTheta;
+        }
+        else
+        {
+            newX = originX * cosTheta + originY * sinTheta;
+            newY = -originX * sinTheta + originY * cosTheta;
+        }
+
 
         return new Vector2(newX + centerPoint.x, newY + centerPoint.y);
     }
@@ -760,6 +770,21 @@ public static class UtilityFunctions
 
         return g.AddComponent<T>();
     }
+    /// <summary>
+    /// Removes a component attached to a GameObject.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="g"></param>
+    /// <returns></returns>
+    public static void RemoveComponent<T>(this GameObject g) where T : Component
+    {
+        var c = g.GetComponent<T>();
+        while (c != null)
+        {
+            UnityEngine.Object.Destroy(c);
+            c = g.GetComponent<T>();
+        }
+    }
 
 
     /// <summary>
@@ -1180,6 +1205,31 @@ public static class UtilityFunctions
         Gizmos.DrawLine(end, end - (angle + headArc / 2f).GetAngleDirection() * headLength);
         Gizmos.DrawLine(end, end - (angle - headArc / 2f).GetAngleDirection() * headLength);
 
+    }
+
+    public static void GizmosDrawBezierCurve(BezierCurve curve, int points = 10, Color? gizmosColorCurve = null, Color? gizmosColorControlPoints = null)
+    {
+        Gizmos.color = gizmosColorCurve ?? Color.green;
+
+
+        var b = new BezierCurve(curve);
+        if (b == null)
+            return;
+        if (b.lineControlPoints != null)
+        {
+            var PointsPos = b.GetPathPoints();
+
+            for (int i = 0; i < PointsPos.Count - 1; i++)
+            {
+                Gizmos.DrawLine(PointsPos[i], PointsPos[i + 1]);
+
+            }
+            var color = gizmosColorControlPoints ?? Color.red;
+            for (int i = 0; i < b.lineControlPoints.Count; i++)
+            {
+                GizmosDrawCross(b.lineControlPoints[i], 0.5f, color);
+            }
+        }
     }
 
     /// <summary>
