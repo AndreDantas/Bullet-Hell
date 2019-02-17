@@ -1,10 +1,10 @@
 ﻿
-using UnityEngine;
 using Unity.Entities;
+using UnityEngine;
 [UpdateBefore(typeof(ObjectBoundsSystem))]
 public class PlayerMovementSystem : ComponentSystem
 {
-    struct Group
+    private struct Group
     {
         public Player player;
 
@@ -25,14 +25,16 @@ public class PlayerMovementSystem : ComponentSystem
                 {
                     CalculateInputMovement(item.player);
                 }
+#if UNITY_EDITOR
                 else
                     CalculateMouseMovement(item.player);
+#endif
             }
 
         }
     }
 
-    void CalculateInputMovement(Player move)
+    private void CalculateInputMovement(Player move)
     {
         var inputX = Input.GetAxisRaw("Horizontal");
         var inputY = Input.GetAxisRaw("Vertical");
@@ -41,8 +43,8 @@ public class PlayerMovementSystem : ComponentSystem
                                                 inputY * move.speed * Time.deltaTime + move.transform.position.y, move.transform.position.z);
         move.transform.eulerAngles = new Vector3(0f, 0f, inputX * -move.tilt);
     }
-
-    void CalculateMouseMovement(Player move)
+#if UNITY_EDITOR
+    private void CalculateMouseMovement(Player move)
     {
         var inputX = Input.GetAxisRaw("Horizontal");
         var inputY = Input.GetAxisRaw("Vertical");
@@ -82,8 +84,8 @@ public class PlayerMovementSystem : ComponentSystem
         }
         move.transform.eulerAngles = new Vector3(0f, 0f, UtilityFunctions.Map(-move.speed, move.speed, -1f, 1f, move.refVelocity.x) * -move.tilt);
     }
-
-    void CalculateTouchMovement(Player move)
+#endif
+    private void CalculateTouchMovement(Player move)
     {
         var inputX = Input.GetAxisRaw("Horizontal");
         var inputY = Input.GetAxisRaw("Vertical");

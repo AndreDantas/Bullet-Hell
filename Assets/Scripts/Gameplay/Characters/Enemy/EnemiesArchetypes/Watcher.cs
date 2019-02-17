@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class Watcher : CoreEnemy
 {
     public override int Id => 1;
-
+    [SerializeField]
+    protected ShootBullets shoot;
     public override string Name => "Watcher";
 
     public GameObject Eye;
@@ -18,7 +19,22 @@ public class Watcher : CoreEnemy
         base.Awake();
 
     }
+    public override void Init()
+    {
+        base.Init();
+        if (!shoot)
+            shoot = GetComponent<ShootBullets>();
+    }
+    public override void RequestShoot()
+    {
+        base.RequestShoot();
+        if (shoot?.shootTimer.isFinished ?? false)
+        {
 
+            Shoot();
+            shoot.shootTimer.Reset();
+        }
+    }
     protected override void Shoot()
     {
         if (player && player.gameObject.activeInHierarchy)

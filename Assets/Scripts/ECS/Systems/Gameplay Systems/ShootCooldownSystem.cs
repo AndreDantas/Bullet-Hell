@@ -12,7 +12,7 @@ public class ShootCooldownSystem : ComponentSystem
     {
 
         public int Length;
-        public ComponentArray<Shoot> Shoot;
+        public ComponentArray<ShootBullets> Shoot;
     }
 
     [Inject] Data data;

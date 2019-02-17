@@ -9,8 +9,7 @@ public abstract class Enemy : Character
 {
     public bool active = true;
     public Movement movement;
-    [SerializeField]
-    protected Shoot shoot;
+
     protected Player player;
     protected virtual void Awake()
     {
@@ -19,8 +18,7 @@ public abstract class Enemy : Character
 
     public virtual void Init()
     {
-        if (!shoot)
-            shoot = GetComponent<Shoot>();
+
         if (!movement)
             movement = GetComponent<Movement>();
     }
@@ -38,12 +36,7 @@ public abstract class Enemy : Character
     {
         if (!active)
             return;
-        if (shoot?.shootTimer.isFinished ?? false)
-        {
 
-            Shoot();
-            shoot.shootTimer.Reset();
-        }
     }
 
     protected abstract void Shoot();
@@ -54,7 +47,6 @@ public abstract class Enemy : Character
 
     private void Reset()
     {
-        shoot = GetComponent<Shoot>();
         movement = GetComponent<Movement>();
     }
 }

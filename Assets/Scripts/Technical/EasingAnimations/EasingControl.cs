@@ -92,6 +92,12 @@ public class EasingControl : MonoBehaviour
         currentValue = newValue;
         updateEvent?.Invoke(this, EventArgs.Empty);
     }
+
+    public void SeekToHalfway()
+    {
+        SeekToTime(duration / 2f);
+    }
+
     public void SeekToBeginning()
     {
         SeekToTime(0.0f);

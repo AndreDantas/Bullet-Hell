@@ -19,7 +19,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 1262439287043654, guid: be40f4dc071857149b9073a8a3ab1165,
         type: 2}
       MovementType:
-        movementType: 2
+        movementType: 3
         moveBetweenPointsDetails:
           moveTime: 5
           type: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
           path: []
         moveRandomAreaDetails:
           moveTime: 5
-          scaleToScreenSize: 0
+          scaleToScreenSize: 1
           area:
             m_Center: {x: 0, y: 0, z: 0}
             m_Extent: {x: 0, y: 0, z: 0}
@@ -51,8 +51,7 @@ MonoBehaviour:
           scaleToScreenSize: 1
           curve:
             lineControlPoints:
-            - {x: -1.5, y: 0, z: 0}
-            - {x: -1.5, y: 0.5, z: 1}
+            - {x: -1.5, y: -0.5, z: 0}
             - {x: 0, y: 0.5, z: 0}
             curvePointsCount: 10
           moveTime: 1.8

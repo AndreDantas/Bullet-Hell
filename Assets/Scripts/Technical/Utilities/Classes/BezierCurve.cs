@@ -26,9 +26,17 @@ public class BezierCurve
     }
     public BezierCurve(BezierCurve b)
     {
-        lineControlPoints = new List<Vector3>(b.lineControlPoints);
-        CalculatePoints();
-        curvePointsCount = b.curvePointsCount;
+        if (b != null)
+        {
+            lineControlPoints = new List<Vector3>(b.lineControlPoints);
+            CalculatePoints();
+            curvePointsCount = b.curvePointsCount;
+        }
+    }
+
+    public BezierCurve(List<Vector3> lineControlPoints, int curvePointsCount) : this(lineControlPoints)
+    {
+        this.curvePointsCount = curvePointsCount;
     }
 
     public List<Vector3> GetPathPoints()

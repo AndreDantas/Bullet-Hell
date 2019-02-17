@@ -20,6 +20,11 @@ public class MoveRandomAreaSmooth : Movement
     public bool scaleToScreenSize;
     public Bounds area;
     public EasingEquationsType moveEquation = EasingEquationsType.EaseInOutCubic;
+    [Range(3, 30)]
+    public int pathPoints = 5;
+    [Range(10, 50)]
+    public int curvePoints = 30;
+
     protected BezierCurve path;
 
     public override void Move()
@@ -30,24 +35,29 @@ public class MoveRandomAreaSmooth : Movement
 
         if (!isMoving)
         {
+            pathPoints = UtilityFunctions.ClampMin(pathPoints, 3);
+            List<Vector3> points = new List<Vector3>();
+            points.Add(transform.position);
 
-            Vector3 destination1, destination2;
+            Bounds b;
             if (!scaleToScreenSize)
             {
-                destination2 = area.RandomPoint();
-                destination1 = area.RandomPoint();
+                b = area;
             }
             else
             {
                 var w = UtilityFunctions.ScreenWidth;
                 var h = UtilityFunctions.ScreenHeight;
 
-                Bounds b = new Bounds(UnitaryQuadrant.Screen.GetPoint(area.center), new Vector3(w * area.size.x, h * area.size.y));
-
-                destination2 = b.RandomPoint();
-                destination1 = b.RandomPoint();
+                b = new Bounds(UnitaryQuadrant.Screen.GetPoint(area.center), new Vector3(w * area.size.x, h * area.size.y));
             }
-            path = new BezierCurve(new List<Vector3> { transform.position, destination1, destination2 });
+
+            for (int i = 0; i < pathPoints - 1; i++)
+            {
+                points.Add(b.RandomPoint());
+            }
+
+            path = new BezierCurve(points, curvePoints);
 
             isMoving = true;
             var t = transform.MoveInBezierCurve(path, moveTime, EasingEquations.GetEquation(moveEquation));

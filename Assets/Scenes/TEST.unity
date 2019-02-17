@@ -1442,6 +1442,7 @@ MonoBehaviour:
   active: 1
   movement: {fileID: 0}
   shoot: {fileID: 0}
+  player: {fileID: 0}
 --- !u!212 &123152755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2675,6 +2676,7 @@ MonoBehaviour:
   active: 1
   movement: {fileID: 0}
   shoot: {fileID: 0}
+  player: {fileID: 0}
 --- !u!212 &472304108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4539,7 +4541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &967439918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4585,7 +4587,7 @@ MonoBehaviour:
   shootTimer:
     time: 0.5
   data:
-    type: 2
+    type: 1
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
     faction: 1
@@ -4653,12 +4655,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  moveTime: 5
+  moveTime: 3
   scaleToScreenSize: 1
   area:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.4, y: 0.2, z: 0}
-  moveEquation: 7
+  moveEquation: 0
+  pathPoints: 10
+  curvePoints: 25
 --- !u!114 &967439925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5170,6 +5174,7 @@ MonoBehaviour:
   active: 1
   movement: {fileID: 0}
   shoot: {fileID: 0}
+  player: {fileID: 0}
 --- !u!212 &1076797445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7340,6 +7345,7 @@ MonoBehaviour:
   active: 1
   movement: {fileID: 0}
   shoot: {fileID: 0}
+  player: {fileID: 0}
 --- !u!212 &1789803909
 SpriteRenderer:
   m_ObjectHideFlags: 0

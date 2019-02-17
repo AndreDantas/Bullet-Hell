@@ -135,6 +135,7 @@ public static class UtilityFunctions
         return new Vector2(newX + centerPoint.x, newY + centerPoint.y);
     }
 
+
     /// <summary>
     /// Calculates the points of a circle.
     /// </summary>
@@ -217,29 +218,29 @@ public static class UtilityFunctions
     /// Checks if a point is whitin a ellipse.
     /// </summary>
     /// <param name="point"></param>
-    /// <param name="circleCenter"></param>
+    /// <param name="ellipseCenter"></param>
     /// <param name="diameter"></param>
     /// <returns></returns>
-    public static bool PointWhitinEllipse(Vector2 point, Vector2 circleCenter, float width = 1f, float height = 1f)
+    public static bool PointWhitinEllipse(Vector2 point, Vector2 ellipseCenter, float width = 1f, float height = 1f)
     {
-        return PointWhitinEllipse(point, circleCenter, width, height, 0f);
+        return PointWhitinEllipse(point, ellipseCenter, width, height, 0f);
     }
     /// <summary>
     /// Checks if a point is whitin a ellipse.
     /// </summary>
     /// <param name="point"></param>
-    /// <param name="circleCenter"></param>
+    /// <param name="ellipseCenter"></param>
     /// <param name="diameter"></param>
     /// <returns></returns>
-    public static bool PointWhitinEllipse(Vector2 point, Vector2 circleCenter, float width = 1f, float height = 1f, float angle = 0f)
+    public static bool PointWhitinEllipse(Vector2 point, Vector2 ellipseCenter, float width = 1f, float height = 1f, float angle = 0f)
     {
         angle = ClampAngle(angle) * Mathf.Deg2Rad;
 
         var cos = Mathf.Cos(angle);
         var sin = Mathf.Sin(angle);
 
-        var dx = (point.x - circleCenter.x);
-        var dy = (point.y - circleCenter.y);
+        var dx = (point.x - ellipseCenter.x);
+        var dy = (point.y - ellipseCenter.y);
 
         var rx = (width / 2f);
         var ry = (height / 2f);
@@ -250,6 +251,152 @@ public static class UtilityFunctions
         return (tdx * tdx) / (rx * rx) + (tdy * tdy) / (ry * ry) < 1;
 
     }
+
+    public static bool PointWhitinEllipse(Vector2 point, Ellipse e)
+    {
+        return PointWhitinEllipse(point, e.Center, e.Width, e.Height, e.Rotation);
+    }
+
+    private static float isLeft(Vector2 P0, Vector2 P1, Vector2 P2)
+    {
+        return ((P1.x - P0.x) * (P2.y - P0.y) - (P2.x - P0.x) * (P1.y - P0.y));
+    }
+    public static bool PointInRectangle(Vector2 X, Vector2 Y, Vector2 Z, Vector2 W, Vector2 P)
+    {
+        return (isLeft(X, Y, P) > 0 && isLeft(Y, Z, P) > 0 && isLeft(Z, W, P) > 0 && isLeft(W, X, P) > 0);
+    }
+
+    public static bool PointInRectangle(Rectangle R, Vector2 P)
+    {
+        return PointInRectangle(R.TopLeft, R.TopRight, R.BottomRight, R.BottomLeft, P);
+    }
+
+    public static bool CircleIntersectsTriangle(Vector2 circleCenter, float radius, Triangle t)
+    {
+
+        //TEST 1: Vertex within circle
+
+        float c1x = circleCenter.x - t.V1.x;
+        float c1y = circleCenter.y - t.V1.y;
+
+        float radiusSqr = radius * radius;
+        float c1sqr = c1x * c1x + c1y * c1y - radiusSqr;
+
+        if (c1sqr <= 0)
+            return true;
+
+        float c2x = circleCenter.x - t.V2.x;
+        float c2y = circleCenter.y - t.V2.y;
+
+        float c2sqr = c2x * c2x + c2y * c2y - radiusSqr;
+
+        if (c2sqr <= 0)
+            return true;
+
+        float c3x = circleCenter.x - t.V3.x;
+        float c3y = circleCenter.y - t.V3.y;
+
+        float c3sqr = radiusSqr;
+        c3sqr = c3x * c3x + c3y * c3y - radiusSqr;
+
+        if (c3sqr <= 0)
+            return true;
+
+        //TEST 2: Circle centre within triangle
+
+        float e1x = t.V2.x - t.V1.x;
+        float e1y = t.V2.y - t.V1.y;
+
+        float e2x = t.V3.x - t.V2.x;
+        float e2y = t.V3.y - t.V2.y;
+
+        float e3x = t.V1.x - t.V3.x;
+        float e3y = t.V1.y - t.V3.y;
+
+        if (e1y * c1x >= e1x * c1y &&
+            e2y * c2x >= e2x * c2y &&
+            e3y * c3x >= e3x * c3y)
+            return true;
+
+        //TEST 3: Circle intersects edge
+
+        var k = c1x * e1x + c1y * e1y;
+        float len;
+        if (k > 0)
+        {
+            len = e1x * e1x + e1y * e1y;
+
+            if (k < len)
+            {
+                if (c1sqr * len <= k * k)
+                    return true;
+            }
+        }
+
+        // Second edge
+        k = c2x * e2x + c2y * e2y;
+
+        if (k > 0)
+        {
+            len = e2x * e2x + e2y * e2y;
+
+            if (k < len)
+            {
+                if (c2sqr * len <= k * k)
+                    return true;
+            }
+        }
+
+        // Third edge
+        k = c3x * e3x + c3y * e3y;
+
+        if (k > 0)
+        {
+            len = e3x * e3x + e3y * e3y;
+
+            if (k < len)
+            {
+                if (c3sqr * len <= k * k)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static bool EllipseIntersectsRectangle(Ellipse E, Rectangle R)
+    {
+        //Too far apart
+        if (Vector2.Distance(E.Center, R.Center) > (Vector2.Distance(R.Center, R.TopLeft) + Mathf.Max(E.Width, E.Height) / 2f))
+            return false;
+
+        //Ellipse center whitin rectangle
+        if (PointInRectangle(R, E.Center))
+            return true;
+
+        List<Vector2> l = new List<Vector2> { R.TopLeft, R.TopRight, R.BottomRight, R.BottomLeft };
+
+
+        for (int i = 0; i < l.Count; i++)
+        {
+
+            l[i] -= E.Center;
+            l[i] = RotatePoint(l[i], Vector2.zero, -E.Rotation);
+            l[i] = new Vector2(l[i].x * (1f / E.Width),
+                               (l[i].y) * (1f / E.Height));
+            l[i] = RotatePoint(l[i], Vector2.zero, E.Rotation);
+            l[i] += E.Center;
+        }
+
+        if (CircleIntersectsTriangle(E.Center, 0.5f, new Triangle(l[0], l[1], l[2])))
+            return true;
+
+        if (CircleIntersectsTriangle(E.Center, 0.5f, new Triangle(l[2], l[3], l[0])))
+            return true;
+
+        return false;
+    }
+
     /// <summary>
     /// Returns the factorial of the given number.
     /// </summary>
@@ -1085,6 +1232,20 @@ public static class UtilityFunctions
         Gizmos.DrawWireCube(b.center, b.size);
     }
 
+    public static void GizmosDrawQuadrilateral(Vector2 V1, Vector2 V2, Vector2 V3, Vector2 V4, Color? gizmosColor = null)
+    {
+        Gizmos.color = gizmosColor ?? Color.green;
+
+        Gizmos.DrawLine(V1, V2);
+        Gizmos.DrawLine(V2, V3);
+        Gizmos.DrawLine(V3, V4);
+        Gizmos.DrawLine(V4, V1);
+    }
+    public static void GizmosDrawRectangle(Rectangle r, Color? gizmosColor = null)
+    {
+        GizmosDrawQuadrilateral(r.TopLeft, r.TopRight, r.BottomRight, r.BottomLeft, gizmosColor);
+    }
+
     public const int DefaultLayerMask = ~0;
 
 
@@ -1098,17 +1259,6 @@ public static class UtilityFunctions
     public static void GizmosDrawCircle(Vector2 pos, float diameter = 1f, int points = 30, Color? gizmosColor = null)
     {
         GizmosDrawEllipse(pos, diameter, diameter, points, gizmosColor);
-    }
-    /// <summary>
-    /// Draws a ellipse in a DrawGizmos function.
-    /// </summary>
-    /// <param name="pos"></param>
-    /// <param name="radius"></param>
-    /// <param name="points"></param>
-    /// <param name="gizmosColor"></param>
-    public static void GizmosDrawEllipse(Vector2 pos, float width, float height, int points = 30, Color? gizmosColor = null)
-    {
-        GizmosDrawEllipse(pos, width, height, 0f, points, gizmosColor);
     }
 
     /// <summary>
@@ -1137,6 +1287,21 @@ public static class UtilityFunctions
         }
 
         Gizmos.DrawLine(circlePoints[circlePoints.Count - 1], circlePoints[0]);
+    }
+    public static void GizmosDrawEllipse(Ellipse e, int points = 30, Color? gizmosColor = null)
+    {
+        GizmosDrawEllipse(e.Center, e.Width, e.Height, e.Rotation, points, gizmosColor);
+    }
+    /// <summary>
+    /// Draws a ellipse in a DrawGizmos function.
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="radius"></param>
+    /// <param name="points"></param>
+    /// <param name="gizmosColor"></param>
+    public static void GizmosDrawEllipse(Vector2 pos, float width, float height, int points = 30, Color? gizmosColor = null)
+    {
+        GizmosDrawEllipse(pos, width, height, 0f, points, gizmosColor);
     }
 
     /// <summary>
